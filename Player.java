@@ -21,7 +21,7 @@ public class Player extends Character
     
     
     // Use an act counter to control the movement
-    private int walkAct, walkType = -1;
+    private int walkAct, walkType = -1, prevWalkType = -1;
     public Player(int direction){
         // Initialize necessary data structures
         movements = new GreenfootImage[4][4];
@@ -56,8 +56,8 @@ public class Player extends Character
             return idx;
         }
         walkAct = 0;
-        setImage(animate[idx]);
-        idx = (idx + 1) % 4;
+        setImage(animate[idx + 1]);
+        idx = (idx + 1) % 3;
         return idx;
     }
     
@@ -78,70 +78,81 @@ public class Player extends Character
         
         if (walkType != -1 && Greenfoot.isKeyDown(dir[walkType])) walkType = -1;
         if (Greenfoot.isKeyDown("down")){
-            setLocation(getX(), getY()+2);
+            setLocation(getX(), getY() + 3);
             moved = true;
             
             if (keyState[0] == 0 && walkType != -1 || walkType == -1){
                 keyState[0] = 1;
-                walkType = 0;
+                walkType = prevWalkType = 0;
             }
             
             if (walkType == 0) imageIdx[0] = animate(movements[0], imageIdx[0]);
         } else {
-            if (walkType == 0) walkType = -1;
+            if (walkType == 0) {
+                imageIdx[walkType] = 0;
+                walkType = -1;
+            }
             keyState[0] = 0;
         }
         
         if (Greenfoot.isKeyDown("up")){
-            setLocation(getX(), getY()-2);
+            setLocation(getX(), getY() - 3);
             moved = true;
             
             if (keyState[1] == 0 && walkType != -1 || walkType == -1){
                 keyState[1] = 1;
-                walkType = 1;
+                walkType = prevWalkType = 1;
             }
             
             if (walkType == 1) imageIdx[1] = animate(movements[1], imageIdx[1]);
         } else {
-            if (walkType == 1) walkType = -1;
+            if (walkType == 1) {
+                imageIdx[walkType] = 0;
+                walkType = -1;
+            }
             keyState[1] = 0;
         }
         
         if (Greenfoot.isKeyDown("left")){
-            move(-2);
+            move(-3);
             moved = true;
             
             if (keyState[2] == 0 && walkType != -1 || walkType == -1){
-                System.out.println("HI");
                 keyState[2] = 1;
-                walkType = 2;
+                walkType = prevWalkType = 2;
             }
             
             if (walkType == 2) imageIdx[2] = animate(movements[2], imageIdx[2]);
 
         } else {
-            if (walkType == 2) walkType = -1;
+            if (walkType == 2) {
+                imageIdx[walkType] = 0;
+                walkType = -1;
+            }
             keyState[2] = 0;
         }
         
         if (Greenfoot.isKeyDown("right")){
-            move(2);
+            move(3);
             
             moved = true;
             if (keyState[3] == 0 && walkType != -1 || walkType == -1){
-                keyState[3] = 1;
+                keyState[3] = prevWalkType = 3;
                 walkType = 3;
             }
             
             if (walkType == 3) imageIdx[3] = animate(movements[3], imageIdx[3]);
         } else {
-            if (walkType == 3) walkType = -1;
+            if (walkType == 3) {
+                imageIdx[walkType] = 0;
+                walkType = -1;
+            }
             keyState[3] = 0;
         }
    
-        if (!moved && walkType != -1) {
-            setImage(movements[walkType][0]);
-            imageIdx[walkType] = 0;
+        if (!moved && prevWalkType != -1) {
+            setImage(movements[prevWalkType][0]);
+            imageIdx[prevWalkType] = 0;
             walkType = -1;
         }
         
