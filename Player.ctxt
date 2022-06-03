@@ -2,6 +2,10 @@
 comment0.target=Player
 comment0.text=\n\ Write\ a\ description\ of\ class\ Player\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
-comment1.target=void\ act()
-comment1.text=\n\ Act\ -\ do\ whatever\ the\ Player\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
-numComments=2
+comment1.target=Player()
+comment2.params=animat\ idx
+comment2.target=int\ animate(greenfoot.GreenfootImage[],\ int)
+comment2.text=\n\ This\ method\ will\ update\ the\ sprite\ pictures\ when\ the\ user\ press\ the\ corresponding\ keys\n\ @param\ animat,\ this\ is\ the\ GreenfoorImage\ array\ that\ is\ stored\ the\ direction\ images\n\ @param\ idx,\ this\ is\ the\ index\ for\ this\ method\ to\ update\ the\ images\ with\n\ @return\ \ this\ will\ update\ the\ index\ of\n
+comment3.params=
+comment3.target=void\ act()
+numComments=4

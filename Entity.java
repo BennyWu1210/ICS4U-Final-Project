@@ -16,4 +16,8 @@ public abstract class Entity extends Actor
     {
         // Add your action code here.
     }
+    
+    public void move(){
+        
+    }
 }
