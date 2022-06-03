@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=Label
+comment0.text=\n\ A\ Label\ class\ that\ allows\ you\ to\ display\ a\ textual\ value\ on\ screen.\n\ \n\ The\ Label\ is\ an\ actor,\ so\ you\ will\ need\ to\ create\ it,\ and\ then\ add\ it\ to\ the\ world\n\ in\ Greenfoot.\ \ If\ you\ keep\ a\ reference\ to\ the\ Label\ then\ you\ can\ change\ the\ text\ it\n\ displays.\ \ \n\n\ @author\ Amjad\ Altadmri\ \n\ @version\ 1.1\n
+comment1.params=value\ fontSize
+comment1.target=Label(int,\ int)
+comment1.text=\n\ Create\ a\ new\ label,\ initialise\ it\ with\ the\ int\ value\ to\ be\ shown\ and\ the\ font\ size\ \n
+comment2.params=value\ fontSize
+comment2.target=Label(java.lang.String,\ int)
+comment2.text=\n\ Create\ a\ new\ label,\ initialise\ it\ with\ the\ needed\ text\ and\ the\ font\ size\ \n
+comment3.params=value
+comment3.target=void\ setValue(java.lang.String)
+comment3.text=\n\ Sets\ the\ value\ \ as\ text\n\ \n\ @param\ value\ the\ text\ to\ be\ show\n
+comment4.params=value
+comment4.target=void\ setValue(int)
+comment4.text=\n\ Sets\ the\ value\ as\ integer\n\ \n\ @param\ value\ the\ value\ to\ be\ show\n
+comment5.params=lineColor
+comment5.target=void\ setLineColor(greenfoot.Color)
+comment5.text=\n\ Sets\ the\ line\ color\ of\ the\ text\n\ \n\ @param\ lineColor\ the\ line\ color\ of\ the\ text\n
+comment6.params=fillColor
+comment6.target=void\ setFillColor(greenfoot.Color)
+comment6.text=\n\ Sets\ the\ fill\ color\ of\ the\ text\n\ \n\ @param\ fillColor\ the\ fill\ color\ of\ the\ text\n
+comment7.params=
+comment7.target=void\ updateImage()
+comment7.text=\n\ Update\ the\ image\ on\ screen\ to\ show\ the\ current\ value.\n
+numComments=8
