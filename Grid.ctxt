@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Grid
+comment0.text=\n\ This\ is\ used\ for\ testing\ as\ of\ now\ (will\ make\ it\ invisible\ in\ the\ future)\n\ The\ "Grid"\ could\ contain\ houses,\ NPCs,\ crops,\ items,\ etc.\n\ 50\ *\ 50\n\ \n\ @author\ Benny\ Wu\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=x\ y
+comment1.target=Grid(int,\ int)
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\n\ Act\ -\ do\ whatever\ the\ Grid\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+numComments=3

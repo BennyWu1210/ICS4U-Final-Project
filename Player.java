@@ -35,10 +35,10 @@ public class Player extends Character
             movements[2][i] = new GreenfootImage("left" + i + ".png");
             movements[3][i] = new GreenfootImage("right" + i +".png");
             
-            movements[0][i].scale(120,120);
-            movements[1][i].scale(120,120);
-            movements[2][i].scale(120,120);
-            movements[3][i].scale(120,120);
+            movements[0][i].scale(160,160);
+            movements[1][i].scale(160,160);
+            movements[2][i].scale(160,160);
+            movements[3][i].scale(160,160);
   
             
         }
