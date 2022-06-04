@@ -16,8 +16,10 @@ public class Grid extends Actor
         WATER
     }
     
-    private int x, y;
-    private GridType type;
+    protected int x, y;
+    protected GridType type;
+    protected Border border;
+    
     public Grid(int x, int y){
         this.x = x; this.y = y;
         GreenfootImage sq = new GreenfootImage("Square.png");
@@ -26,9 +28,24 @@ public class Grid extends Actor
     }
     
     public Grid(GreenfootImage image, int x, int y){
+
         this.x = x; this.y = y;
+        
         image.scale(50, 50);
         setImage(image);
+    }
+    
+    public void addedToWorld(World w){
+        
+        if (type == null) return;
+        
+        // for debugging
+        /*
+        GreenfootImage sq = new GreenfootImage("Square.png");
+        sq.scale(50, 50);
+        border = new Grid(getX(), getY());
+        w.addObject(border, getX(), getY());
+        */
     }
     
     /**
@@ -45,6 +62,24 @@ public class Grid extends Actor
         return this.type;
     }
     
+    /**
+     * This method displays the border of the grid
+     */
+    public void activate(){
+        if (!Border.show && border != null) return;
+        border = new Border(x, y);
+        getWorld().addObject(border, x + 25, y + 25);
+    }
+    
+    /**
+     * This method removes the border of the grid
+     */
+    public void deactivate(){
+        if (border != null){
+            getWorld().removeObject(border);
+        }
+        border = null;
+    }
     
     /**
      * Act - do whatever the Grid wants to do. This method is called whenever
@@ -52,6 +87,6 @@ public class Grid extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+           
     }
 }

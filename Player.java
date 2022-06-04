@@ -155,6 +155,9 @@ public class Player extends Character
             imageIdx[prevWalkType] = 0;
             walkType = -1;
         }
+        if (moved){
+            ((MyWorld)getWorld()).setMovingState(true);
+        } else ((MyWorld)getWorld()).setMovingState(false);
         
     }
     
