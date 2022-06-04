@@ -52,7 +52,7 @@ public class MyWorld extends World
             for (int j = 0; j < HEIGHT / 50 + 2; j++){
                 if (grids[i][j].getType() != Grid.GridType.WATER) continue;
                 int sign = test == 0 ? 1 : - 1;
-                int add = (j % 2 == 0 ? 2 : -2) * sign;
+                int add = (j % 2 == 0 ? 3 : -2) * sign;
                 grids[i][j].setLocation(grids[i][j].getX() + add, j * 50 -25);
             }
         }
