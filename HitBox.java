@@ -27,9 +27,36 @@ public class HitBox extends Actor
     {
         int explore=15;
         follow();
-        if (Greenfoot.isKeyDown("down")){
-            rect.scale(20,45);
-            setImage(rect);
+        if (Greenfoot.isKeyDown("down") && Greenfoot.isKeyDown("left")){
+            setLocation(getX()-explore, getY()+explore);
+            if(touchBorder()){
+                p.setSpeed(0);
+            }else{
+                p.setSpeed(3);
+            }
+        }else if (Greenfoot.isKeyDown("down") && Greenfoot.isKeyDown("right")){
+            setLocation(getX()+explore, getY()+explore);
+            if(touchBorder()){
+                p.setSpeed(0);
+            }else{
+                p.setSpeed(3);
+            }
+        }else if (Greenfoot.isKeyDown("up")&& Greenfoot.isKeyDown("left")){
+            setLocation(getX()-explore, getY()-explore);
+            if(touchBorder()){
+                p.setSpeed(0);
+            }else{
+                stop=false;
+                p.setSpeed(3);
+            }
+        }else if (Greenfoot.isKeyDown("up")&& Greenfoot.isKeyDown("left")){
+            setLocation(getX()+explore, getY()-explore);
+            if(touchBorder()){
+                p.setSpeed(0);
+            }else{
+                p.setSpeed(3);
+            }
+        }else if (Greenfoot.isKeyDown("down")){
             setLocation(getX(), getY()+explore);
             if(touchBorder()){
                 p.setSpeed(0);
@@ -37,8 +64,6 @@ public class HitBox extends Actor
                 p.setSpeed(3);
             }
         }else if (Greenfoot.isKeyDown("up")){
-            rect.scale(20,45);
-            setImage(rect);
             setLocation(getX(), getY()-explore);
             if(touchBorder()){
                 p.setSpeed(0);
@@ -46,8 +71,6 @@ public class HitBox extends Actor
                 p.setSpeed(3);
             }
         }else if (Greenfoot.isKeyDown("left")){
-            rect.scale(20,45);
-            setImage(rect);
             setLocation(getX()-explore, getY());
             if(touchBorder()){
                 p.setSpeed(0);
