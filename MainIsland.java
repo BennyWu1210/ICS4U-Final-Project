@@ -20,13 +20,15 @@ public class MainIsland extends IslandSystem
     private Island island;
     private MapBorder boo;
     private boolean moving;
+    private HitBox h;
     public MainIsland()
     {    
         // Create a new world with 1000x700 cells with a cell size of 1x1 pixels.
         // Allow infinite grid to ensure flexibility. However, ensure that objects can not go outside easily
         grids = new Grid[WIDTH / 50 + 2][HEIGHT / 50 + 2]; // Add 2 grids on each axis for buffer space
         
-        setPaintOrder(Cursor.class, Border.class, Entity.class, Island.class, Grid.class);
+        
+         setPaintOrder(Cursor.class, Border.class, Entity.class, Island.class, Grid.class);
         for (int i = 0; i < WIDTH / 50 + 2; i++){
             for (int j = 0; j < HEIGHT / 50 + 2; j++){
                 Grid cur = new Grid(new GreenfootImage("Water" + ((i + j) % 4 + 1) + ".png") , i * 50, j * 50);
@@ -36,15 +38,19 @@ public class MainIsland extends IslandSystem
             }
         }
         
-        
         // testing mouse cursor
         addObject(new Cursor(), 100, 100);
          
         drawBorder();
         island = new Island(0);
         addObject(island, 525, 375);
-        Player bunny = new Player(1);
+        Player bunny = new Player(1,this);
         addObject(bunny, 300, 300);
+        h = new HitBox(bunny);
+        addObject(h,300,300);
+        
+        
+        // addObject(h1, 298,300);
     }
     
     public void act(){
@@ -54,6 +60,10 @@ public class MainIsland extends IslandSystem
         Border.show = !moving;     
         actCounter ++;
         
+    }
+    
+    public HitBox getHitBox(){
+        return h;
     }
     
     public void waveEffect(){

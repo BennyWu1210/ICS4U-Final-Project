@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Player
 comment0.text=\n\ Write\ a\ description\ of\ class\ Player\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=direction
-comment1.target=Player(int)
+comment1.params=direction\ mainIsland
+comment1.target=Player(int,\ MainIsland)
 comment2.params=animate\ idx
 comment2.target=int\ animate(greenfoot.GreenfootImage[],\ int)
 comment2.text=\n\ This\ method\ will\ update\ the\ sprite\ pictures\ when\ the\ user\ press\ the\ corresponding\ keys\n\ @param\ animat,\ this\ is\ the\ GreenfoorImage\ array\ that\ is\ stored\ the\ direction\ images\n\ @param\ idx,\ this\ is\ the\ index\ for\ this\ method\ to\ update\ the\ images\ with\n\ @return\ \ this\ will\ update\ the\ index\ of\n
@@ -11,7 +11,6 @@ comment3.target=void\ act()
 comment4.params=
 comment4.target=void\ move()
 comment4.text=\n\ This\ methods\ is\ responsible\ for\ the\ movement\ logic\ of\ the\ player,\ it\ determines\ \n\ which\ direction\ is\ should\ go\ and\ update\ the\ image\ correspondingly.\n
-comment5.params=
-comment5.target=boolean\ touchBorder()
-comment5.text=\n\ This\ method\ check\ whether\ the\ player\ touch\ the\ border\ or\ not\n\ @return\ boolean\ value\ about\ whether\ touch\ the\ side\ or\ not\n
+comment5.params=x
+comment5.target=void\ setSpeed(int)
 numComments=6

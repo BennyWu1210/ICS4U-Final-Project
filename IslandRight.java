@@ -44,8 +44,9 @@ public class IslandRight extends IslandSystem
         addObject(new Cursor(), 100, 100);
         island = new Island(1);
         addObject(island, 500, 350);
-        Player bunny = new Player(1);
-        addObject(bunny, 300, 300);
+        //Player bunny = new Player(1,);
+        //addObject(bunny, 300, 300);
+        
     }
     
     

@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=HitBox
+comment0.text=\n\ Write\ a\ description\ of\ class\ HitBox\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=p
+comment1.target=HitBox(Player)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=boolean\ getStop()
+comment4.params=
+comment4.target=void\ follow()
+comment5.params=
+comment5.target=boolean\ touchBorder()
+comment5.text=\n\ This\ method\ check\ whether\ the\ player\ touch\ the\ border\ or\ not\n\ @return\ boolean\ value\ about\ whether\ touch\ the\ side\ or\ not\n
+numComments=6
