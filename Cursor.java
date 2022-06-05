@@ -22,11 +22,11 @@ public class Cursor extends Actor
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if (mouse != null){
             int x = mouse.getX(), y = mouse.getY();
-            int curX = (int)((double)x / MyWorld.WIDTH * 20), curY = (int)((double)y / MyWorld.HEIGHT * 14);
+            int curX = (int)((double)x / IslandSystem.WIDTH * 20), curY = (int)((double)y / IslandSystem.HEIGHT * 14);
             if (curX != relativeX || curY != relativeY) {
                 
-                ((MyWorld)getWorld()).displayGrid(curX, curY, true);
-                ((MyWorld)getWorld()).displayGrid(relativeX, relativeY, false);
+                ((IslandSystem)getWorld()).displayGrid(curX, curY, true);
+                ((IslandSystem)getWorld()).displayGrid(relativeX, relativeY, false);
                 relativeX = curX; relativeY = curY;
             }
             setLocation(x, y);

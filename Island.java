@@ -8,9 +8,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Island extends Actor
 {
-    public Island(){
-        setImage("Map.png");
-        getImage().scale(870, 470);
+    public Island(int choice){
+        if(choice==0){
+            setImage("Map.png");
+            getImage().scale(870, 470);
+        }
+        if(choice==1){
+            setImage("IslandRight.png");
+            getImage().scale(600, 430);
+        }
+        
     }
     
     public void act()

@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=IslandSystem
+comment0.text=\n\ Write\ a\ description\ of\ class\ IslandSystem\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=IslandSystem()
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ IslandSystem.\n\ \n
+comment2.params=state
+comment2.target=void\ setMovingState(boolean)
+comment3.params=x\ y\ activate
+comment3.target=void\ displayGrid(int,\ int,\ boolean)
+comment3.text=\n\ This\ method\ changes\ the\ border\ state\ of\ the\ grid\ \n
+numComments=4

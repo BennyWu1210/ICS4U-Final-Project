@@ -22,6 +22,8 @@ public class Player extends Character
     
     // Use an act counter to control the movement
     private int walkAct, walkType = -1, prevWalkType = -1;
+    private int speed=3;
+    
     public Player(int direction){
         // Initialize necessary data structures
         movements = new GreenfootImage[4][4];
@@ -35,12 +37,13 @@ public class Player extends Character
             movements[2][i] = new GreenfootImage("left" + i + ".png");
             movements[3][i] = new GreenfootImage("right" + i +".png");
             
-            movements[0][i].scale(160,160);
-            movements[1][i].scale(160,160);
-            movements[2][i].scale(160,160);
-            movements[3][i].scale(160,160);
-  
-            
+            //set to appropriate size
+            int scale = 50;
+            movements[0][i].scale(scale-5,scale);
+            movements[1][i].scale(scale-5,scale);
+            movements[2][i].scale(scale-15,scale);
+            movements[3][i].scale(scale-15,scale);
+           
         }
         setImage(movements[direction][0]);//set the begining pictures
     }
@@ -61,7 +64,6 @@ public class Player extends Character
         return idx;
     }
     
-    
     public void act()
     {
         walkAct ++;
@@ -78,7 +80,12 @@ public class Player extends Character
         
         if (walkType != -1 && Greenfoot.isKeyDown(dir[walkType])) walkType = -1;
         if (Greenfoot.isKeyDown("down")){
-            setLocation(getX(), getY() + 3);
+            setLocation(getX(), getY() + speed);
+            
+            //if the character touch the border, bouce back
+            if(touchBorder()){
+                setLocation(getX(), getY() - 5);
+            }
             moved = true;
             
             if (keyState[0] == 0 && walkType != -1 || walkType == -1){
@@ -96,7 +103,12 @@ public class Player extends Character
         }
         
         if (Greenfoot.isKeyDown("up")){
-            setLocation(getX(), getY() - 3);
+            setLocation(getX(), getY() - speed);
+            
+            //if the character touch the border, bouce back
+            if(touchBorder()){
+                setLocation(getX(), getY() + speed);
+            }   
             moved = true;
             
             if (keyState[1] == 0 && walkType != -1 || walkType == -1){
@@ -114,7 +126,11 @@ public class Player extends Character
         }
         
         if (Greenfoot.isKeyDown("left")){
-            move(-3);
+            move(-speed);
+            //if the character touch the border, bouce back
+             if(touchBorder()){
+                setLocation(getX()+speed, getY() );
+            }
             moved = true;
             
             if (keyState[2] == 0 && walkType != -1 || walkType == -1){
@@ -133,8 +149,11 @@ public class Player extends Character
         }
         
         if (Greenfoot.isKeyDown("right")){
-            move(3);
-            
+            move(speed);
+            //if the character touch the border, bouce back
+            if(touchBorder()){
+                setLocation(getX()-speed, getY());
+            }
             moved = true;
             if (keyState[3] == 0 && walkType != -1 || walkType == -1){
                 keyState[3] = prevWalkType = 3;
@@ -149,24 +168,28 @@ public class Player extends Character
             }
             keyState[3] = 0;
         }
-   
+       
         if (!moved && prevWalkType != -1) {
             setImage(movements[prevWalkType][0]);
             imageIdx[prevWalkType] = 0;
             walkType = -1;
         }
         if (moved){
-            ((MyWorld)getWorld()).setMovingState(true);
-        } else ((MyWorld)getWorld()).setMovingState(false);
+            ((IslandSystem)getWorld()).setMovingState(true);
+        } else ((IslandSystem)getWorld()).setMovingState(false);
         
     }
     
     /**
-     * This methods determine the direction this particular entity (player) should be facing
-     
-    public int getWalkingDir(){
+     * This method check whether the player touch the border or not
+     * @return boolean value about whether touch the side or not
+     */
+    public boolean touchBorder(){
+        if(isTouching(MapBorder.class)){
+            return true;
+        }else{
+            return false;
+        }
         
     }
-    */
-    
 }

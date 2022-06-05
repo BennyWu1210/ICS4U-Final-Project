@@ -1,33 +1,32 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MyWorld here.
+ * Write a description of class IslandRight here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MyWorld extends World
+public class IslandRight extends IslandSystem
 {
 
-    /**
-     * Constructor for objects of class MyWorld.
-     * 
-     */
     public final static int WIDTH = 1000, HEIGHT = 700;
     private Grid[][] grids;
-
+    
     private int actCounter, test;
     private Island island;
     private boolean moving;
-    public MyWorld()
+    /**
+     * Constructor for objects of class IslandRight.
+     * 
+     */
+    public IslandRight()
     {    
         // Create a new world with 1000x700 cells with a cell size of 1x1 pixels.
         // Allow infinite grid to ensure flexibility. However, ensure that objects can not go outside easily
-        super(WIDTH, HEIGHT, 1, false); 
+        
         
         grids = new Grid[WIDTH / 50 + 2][HEIGHT / 50 + 2]; // Add 2 grids on each axis for buffer space
-        Player bunny = new Player(1);
-        addObject(bunny, 100, 100);
+        
         
         
         
@@ -43,9 +42,12 @@ public class MyWorld extends World
         
         // testing mouse cursor
         addObject(new Cursor(), 100, 100);
-        island = new Island();
-        addObject(island, 525, 375);
+        island = new Island(1);
+        addObject(island, 500, 350);
+        Player bunny = new Player(1);
+        addObject(bunny, 300, 300);
     }
+    
     
     public void act(){
         // Call the wave effect every 50 acts
@@ -83,5 +85,4 @@ public class MyWorld extends World
     public void setMovingState(boolean state){
         moving = state;
     }
-    
 }
