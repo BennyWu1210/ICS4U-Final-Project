@@ -14,7 +14,7 @@ public final static int WIDTH = 1000, HEIGHT = 700;
 
     private int actCounter, test;
     private Island island;
-    private MapBorder boo;
+ 
     private boolean moving;
     /**
      * Constructor for objects of class IslandSystem.

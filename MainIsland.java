@@ -18,7 +18,6 @@ public class MainIsland extends IslandSystem
 
     private int actCounter, test;
     private Island island;
-    private MapBorder boo;
     private boolean moving;
     private HitBox h;
     public MainIsland()
@@ -97,10 +96,43 @@ public class MainIsland extends IslandSystem
      * This method draws the border for the main island
      */
     public void drawBorder(){
-        MapBorder b1 = new MapBorder("b1");
-        addObject(b1, 478, 627);
-        MapBorder b2 = new MapBorder("b2");
-        addObject(b2, 925, 598);
+        InvisibleBorder I1 = new InvisibleBorder(800,10);
+        addObject(I1, 478, 615);
+        InvisibleBorder I2 = new InvisibleBorder(10,70);
+        addObject(I2, 870, 591);
+        InvisibleBorder I3 = new InvisibleBorder(90,10);
+        addObject(I3, 920, 561);
+        InvisibleBorder I4 = new InvisibleBorder(10,250);
+        addObject(I4, 964, 447);
+        InvisibleBorder I5 = new InvisibleBorder(150,10);
+        addObject(I5, 882, 331);
+        InvisibleBorder I6 = new InvisibleBorder(10,60);
+        addObject(I6, 813, 300);
+        InvisibleBorder I7 = new InvisibleBorder(50,10);
+        addObject(I7, 788, 270);
+        InvisibleBorder I8 = new InvisibleBorder(10,200);
+        addObject(I8, 770, 170);
+        InvisibleBorder I9 = new InvisibleBorder(200,10);
+        addObject(I9, 666, 136);
+        InvisibleBorder I10 = new InvisibleBorder(10,48);
+        addObject(I10, 585, 165);
+        InvisibleBorder I11 = new InvisibleBorder(30,10);
+        addObject(I11, 564, 183);
+        InvisibleBorder I12 = new InvisibleBorder(10,48);
+        addObject(I12, 542, 200);
+        InvisibleBorder I13 = new InvisibleBorder(400,10);
+        addObject(I13, 341, 218);
+        InvisibleBorder I14 = new InvisibleBorder(10,250);
+        addObject(I14, 178, 321);
+        InvisibleBorder I15 = new InvisibleBorder(60,10);
+        addObject(I15, 143, 434);
+        InvisibleBorder I16 = new InvisibleBorder(10,70);
+        addObject(I16, 116, 457);
+        InvisibleBorder I17 = new InvisibleBorder(60,10);
+        addObject(I17, 84, 488);
+        InvisibleBorder I18 = new InvisibleBorder(10,190);
+        addObject(I18, 86, 522);
+        /**
         MapBorder b3 = new MapBorder("b3");
         addObject(b3, 977, 453);
         MapBorder b4 = new MapBorder("b4");
@@ -121,6 +153,7 @@ public class MainIsland extends IslandSystem
         addObject(b12, 71, 430);
         MapBorder b13 = new MapBorder("b13");
         addObject(b13, 65, 547);
+        */
     }
   
 }

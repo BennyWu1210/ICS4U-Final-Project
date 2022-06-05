@@ -20,7 +20,7 @@ public class HitBox extends Actor
         rect = new GreenfootImage(45, 45);
         rect.fillRect(5,0,50,50);
         rect.scale(20,45);
-        rect.setTransparency(100);
+        rect.setTransparency(0);
         setImage(rect);
     }
     public void act()
@@ -100,7 +100,7 @@ public class HitBox extends Actor
      * @return boolean value about whether touch the side or not
      */
     public boolean touchBorder(){
-        if(isTouching(MapBorder.class)){
+        if(isTouching(InvisibleBorder.class)){
             return true;
         }else{
             return false;
