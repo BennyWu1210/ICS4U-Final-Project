@@ -13,7 +13,7 @@ public class HitBox extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     private Player p;
-    private boolean stop;
+    private boolean back;
     private GreenfootImage rect;
     public HitBox(Player p){
         this.p=p;
@@ -26,33 +26,51 @@ public class HitBox extends Actor
     public void act()
     {
         int explore=15;
-        follow();
+        
+        
+        if(touchBorder()){
+            back=true;
+        }else{
+            back=false;
+        }
+        
+        
+        
+        /**
         if (Greenfoot.isKeyDown("down") && Greenfoot.isKeyDown("left")){
             setLocation(getX()-explore, getY()+explore);
             if(touchBorder()){
                 p.setSpeed(0);
+                p.setStop(true);
             }else{
                 p.setSpeed(3);
+                p.setStop(false);
             }
         }else if (Greenfoot.isKeyDown("down") && Greenfoot.isKeyDown("right")){
             setLocation(getX()+explore, getY()+explore);
             if(touchBorder()){
                 p.setSpeed(0);
+                p.setStop(true);
             }else{
                 p.setSpeed(3);
+                p.setStop(false);
             }
         }else if (Greenfoot.isKeyDown("up")&& Greenfoot.isKeyDown("left")){
             setLocation(getX()-explore, getY()-explore);
             if(touchBorder()){
                 p.setSpeed(0);
+                p.setStop(true);
             }else{
-                stop=false;
+                
                 p.setSpeed(3);
+                p.setStop(false);
             }
         }else if (Greenfoot.isKeyDown("up")&& Greenfoot.isKeyDown("left")){
             setLocation(getX()+explore, getY()-explore);
             if(touchBorder()){
                 p.setSpeed(0);
+                p.setStop(true);
+                p.setStop(false);
             }else{
                 p.setSpeed(3);
             }
@@ -60,41 +78,45 @@ public class HitBox extends Actor
             setLocation(getX(), getY()+explore);
             if(touchBorder()){
                 p.setSpeed(0);
+                p.setStop(true);
             }else{
                 p.setSpeed(3);
+                p.setStop(false);
             }
         }else if (Greenfoot.isKeyDown("up")){
             setLocation(getX(), getY()-explore);
             if(touchBorder()){
                 p.setSpeed(0);
+                p.setStop(true);
             }else{
                 p.setSpeed(3);
+                p.setStop(false);
             }
         }else if (Greenfoot.isKeyDown("left")){
             setLocation(getX()-explore, getY());
             if(touchBorder()){
                 p.setSpeed(0);
+                p.setStop(true);
             }else{
-                stop=false;
                 p.setSpeed(3);
+                p.setStop(false);
             }
         }else if (Greenfoot.isKeyDown("right")){
             setLocation(getX()+explore, getY());
             if(touchBorder()){
                 p.setSpeed(0);
+                p.setStop(true);
             }else{
                 p.setSpeed(3);
+                p.setStop(false);
             }
         }
-        
-    }
-    public boolean getStop(){
-        return stop;
-    }
-    public void follow(){
-        setLocation(p.getX(), p.getY());
+        */
     }
     
+    public boolean getBack(){
+        return back;
+    }
     /**
      * This method check whether the player touch the border or not
      * @return boolean value about whether touch the side or not

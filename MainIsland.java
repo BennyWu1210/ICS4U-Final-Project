@@ -19,7 +19,6 @@ public class MainIsland extends IslandSystem
     private int actCounter, test;
     private Island island;
     private boolean moving;
-    private HitBox h;
     public MainIsland()
     {    
         // Create a new world with 1000x700 cells with a cell size of 1x1 pixels.
@@ -37,6 +36,7 @@ public class MainIsland extends IslandSystem
             }
         }
         
+        
         // testing mouse cursor
         addObject(new Cursor(), 100, 100);
          
@@ -45,8 +45,7 @@ public class MainIsland extends IslandSystem
         addObject(island, 525, 375);
         Player bunny = new Player(1,this);
         addObject(bunny, 300, 300);
-        h = new HitBox(bunny);
-        addObject(h,300,300);
+      
         
         
         // addObject(h1, 298,300);
@@ -54,16 +53,14 @@ public class MainIsland extends IslandSystem
     
     public void act(){
         // Call the wave effect every 50 acts
-        if (actCounter % 50 == 0) waveEffect();
+       if (actCounter % 50 == 0) waveEffect();
         
-        Border.show = !moving;     
+       Border.show = !moving;     
         actCounter ++;
         
     }
     
-    public HitBox getHitBox(){
-        return h;
-    }
+    
     
     public void waveEffect(){
     

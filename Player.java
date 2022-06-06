@@ -23,17 +23,24 @@ public class Player extends Character
     // Use an act counter to control the movement
     private int walkAct, walkType = -1, prevWalkType = -1;
     private int speed=3;
-    private HitBox hitBox;
+    private boolean stop;
+    private HitBox hitBoxLeft;
+    private HitBox hitBoxRight;
+    private HitBox hitBoxUp;
+    private HitBox hitBoxDown;
     private MainIsland mainIsland;
     public Player(int direction, MainIsland mainIsland){
         this.mainIsland=mainIsland;
-        hitBox=mainIsland.getHitBox();
         // Initialize necessary data structures
         movements = new GreenfootImage[4][4];
         keyState = new int[4];
         imageIdx = new int[4];
         
-        hitBox = new HitBox(this);
+        hitBoxLeft = new HitBox(this);
+        hitBoxRight = new HitBox(this);
+        hitBoxUp = new HitBox(this);
+        hitBoxDown = new HitBox(this);
+        
         
         for(int i = 0; i < 4; i++){//initialize all four direction movements
             movements[0][i] = new GreenfootImage("front" + i + ".png");
@@ -51,6 +58,13 @@ public class Player extends Character
         }
         movements[3][0].scale(40,50);
         setImage(movements[direction][0]);//set the begining pictures
+    }
+
+    public void addedToWorld(World w){
+        w.addObject(hitBoxLeft, getX(), getY());
+        w.addObject(hitBoxRight, getX(), getY());
+        w.addObject(hitBoxUp, getX(), getY());
+        w.addObject(hitBoxDown, getX(), getY());
     }
     
     /**
@@ -83,20 +97,24 @@ public class Player extends Character
     public void move(){
         //this will update the location for the player when they press the key
         boolean moved = false;
-        
+        int explore=10;
         if (walkType != -1 && Greenfoot.isKeyDown(dir[walkType])) walkType = -1;
         if (Greenfoot.isKeyDown("down")){
-           
-            setLocation(getX(), getY() + speed);
             
-            //if the character touch the border, bouce back
+            hitBoxDown.setLocation(getX(), getY() + explore);
             
-            moved = true;
+            if(hitBoxDown.getBack()){
+                //hitBox.setLocation(getX(), getY());
+            }else{
+                setLocation(getX(), getY() + speed);
+                moved = true;
             
             if (keyState[0] == 0 && walkType != -1 || walkType == -1){
                 keyState[0] = 1;
                 walkType = prevWalkType = 0;
             }
+            }
+            
             
             if (walkType == 0) imageIdx[0] = animate(movements[0], imageIdx[0]);
         } else {
@@ -108,15 +126,19 @@ public class Player extends Character
         }
         
         if (Greenfoot.isKeyDown("up")){
-            setLocation(getX(), getY() - speed);
+            hitBoxUp.setLocation(getX(), getY() - explore);
+            if(hitBoxUp.getBack()){
+                //hitBox.setLocation(getX(), getY() );
+            }else{
+                setLocation(getX(), getY() - speed);
            
-            moved = true;
+                moved = true;
             
-            if (keyState[1] == 0 && walkType != -1 || walkType == -1){
-                keyState[1] = 1;
-                walkType = prevWalkType = 1;
+                if (keyState[1] == 0 && walkType != -1 || walkType == -1){
+                    keyState[1] = 1;
+                    walkType = prevWalkType = 1;
+                }
             }
-            
             if (walkType == 1) imageIdx[1] = animate(movements[1], imageIdx[1]);
         } else {
             if (walkType == 1) {
@@ -127,18 +149,21 @@ public class Player extends Character
         }
         
         if (Greenfoot.isKeyDown("left")){
+            hitBoxLeft.setLocation(getX()-explore, getY());
+            if(hitBoxLeft.getBack()){
+                //hitBox.setLocation(getX(), getY());
+            }else{
            
-           
-            move(-speed);
-            //if the character touch the border, bouce back
-            
-            moved = true;
-            
-            if (keyState[2] == 0 && walkType != -1 || walkType == -1){
-                keyState[2] = 1;
-                walkType = prevWalkType = 2;
+                move(-speed);
+                //if the character touch the border, bouce back
+                
+                moved = true;
+                
+                if (keyState[2] == 0 && walkType != -1 || walkType == -1){
+                    keyState[2] = 1;
+                    walkType = prevWalkType = 2;
+                }
             }
-            
             if (walkType == 2) imageIdx[2] = animate(movements[2], imageIdx[2]);
 
         } else {
@@ -150,7 +175,10 @@ public class Player extends Character
         }
         
         if (Greenfoot.isKeyDown("right")){
-            
+            hitBoxRight.setLocation(getX()+explore, getY());
+            if(hitBoxRight.getBack()){
+                //hitBox.setLocation(getX(), getY());
+            }else{
             move(speed);
             //if the character touch the border, bouce back
             
@@ -159,7 +187,7 @@ public class Player extends Character
                 keyState[3] = prevWalkType = 3;
                 walkType = 3;
             }
-            
+        }
             if (walkType == 3) imageIdx[3] = animate(movements[3], imageIdx[3]);
         } else {
             if (walkType == 3) {
@@ -182,5 +210,9 @@ public class Player extends Character
     
     public void setSpeed(int x){
         speed=x;
+    }
+    
+    public void setStop(boolean value){
+        stop=value;
     }
 }
