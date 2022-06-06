@@ -19,14 +19,17 @@ public class MainIsland extends IslandSystem
     private int actCounter, test;
     private Island island;
     private boolean moving;
+    private IslandRight islandRight;
+    private Player bunny ;
     public MainIsland()
     {    
+        
         // Create a new world with 1000x700 cells with a cell size of 1x1 pixels.
         // Allow infinite grid to ensure flexibility. However, ensure that objects can not go outside easily
         grids = new Grid[WIDTH / 50 + 2][HEIGHT / 50 + 2]; // Add 2 grids on each axis for buffer space
         
         
-         setPaintOrder(Cursor.class, Border.class, Entity.class, Island.class, Grid.class);
+        setPaintOrder(Cursor.class, Border.class, Entity.class, Bridge.class,Island.class,Grid.class);
         for (int i = 0; i < WIDTH / 50 + 2; i++){
             for (int j = 0; j < HEIGHT / 50 + 2; j++){
                 Grid cur = new Grid(new GreenfootImage("Water" + ((i + j) % 4 + 1) + ".png") , i * 50, j * 50);
@@ -43,9 +46,11 @@ public class MainIsland extends IslandSystem
         drawBorder();
         island = new Island(0);
         addObject(island, 525, 375);
-        Player bunny = new Player(1,this);
+        bunny= new Player(1,this);
         addObject(bunny, 300, 300);
-      
+        
+        Bridge bri = new Bridge(1);
+        addObject(bri, 967,471);
         
         
         // addObject(h1, 298,300);
@@ -53,11 +58,18 @@ public class MainIsland extends IslandSystem
     
     public void act(){
         // Call the wave effect every 50 acts
+        if(bunny.getX()>1100){
+            openIslandRight();
+        }
+        
        if (actCounter % 50 == 0) waveEffect();
         
        Border.show = !moving;     
         actCounter ++;
         
+    }
+    public void openIslandRight(){
+        Greenfoot.setWorld(new IslandRight(this));
     }
     
     
@@ -100,7 +112,13 @@ public class MainIsland extends IslandSystem
         InvisibleBorder I3 = new InvisibleBorder(90,10);
         addObject(I3, 920, 561);
         InvisibleBorder I4 = new InvisibleBorder(10,250);
-        addObject(I4, 964, 447);
+        addObject(I4, 963, 621);
+        InvisibleBorder I19 = new InvisibleBorder(10,250);
+        addObject(I19, 963, 323);
+        InvisibleBorder I20 = new InvisibleBorder(70,10);
+        addObject(I20, 1000, 503);
+        InvisibleBorder I21 = new InvisibleBorder(70,10);
+        addObject(I21, 1000, 441);
         InvisibleBorder I5 = new InvisibleBorder(150,10);
         addObject(I5, 882, 331);
         InvisibleBorder I6 = new InvisibleBorder(10,60);

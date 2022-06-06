@@ -28,9 +28,9 @@ public class Player extends Character
     private HitBox hitBoxRight;
     private HitBox hitBoxUp;
     private HitBox hitBoxDown;
-    private MainIsland mainIsland;
-    public Player(int direction, MainIsland mainIsland){
-        this.mainIsland=mainIsland;
+    private World island;
+    public Player(int direction, World island){
+        this.island=island;
         // Initialize necessary data structures
         movements = new GreenfootImage[4][4];
         keyState = new int[4];

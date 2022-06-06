@@ -19,7 +19,7 @@ public class HitBox extends Actor
         this.p=p;
         rect = new GreenfootImage(45, 45);
         rect.fillRect(5,0,50,50);
-        rect.scale(20,45);
+        rect.scale(20,40);
         rect.setTransparency(0);
         setImage(rect);
     }

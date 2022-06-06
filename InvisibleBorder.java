@@ -23,7 +23,6 @@ public class InvisibleBorder extends Actor
         this.height=height;
         rect = new GreenfootImage(width, height);
         rect.fillRect(0,0,width,height);
-        
         rect.setTransparency(0);
         setImage(rect);
         
