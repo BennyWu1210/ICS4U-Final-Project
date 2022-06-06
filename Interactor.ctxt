@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Interactor
+comment0.text=\n\ Write\ a\ description\ of\ class\ Interactor\ here.\n\ \n\ @author\ Benny\ Wu\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=Interactor()
+comment2.params=
+comment2.target=void\ onHover()
+comment2.text=\n\ The\ effect\ displayed\ while\ hovering\ this\ interactor\n
+comment3.params=
+comment3.target=void\ onClick()
+comment3.text=\n\ The\ method\ responsible\ for\ entering\ the\ interactor\ once\ the\ "enterInteractor\n
+numComments=4

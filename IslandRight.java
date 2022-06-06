@@ -10,28 +10,22 @@ public class IslandRight extends IslandSystem
 {
 
     public final static int WIDTH = 1000, HEIGHT = 700;
-    private Grid[][] grids;
     
     private int actCounter, test;
-    private Island island;
-    private boolean moving;
-    private MainIsland mainIsland;
-    private Player bunny;
+    private IslandSystem previousIsland;
+    
+    
     /**
      * Constructor for objects of class IslandRight.
      * 
      */
-    public IslandRight(MainIsland mainIsland)
+    public IslandRight(IslandSystem previousIsland)
     {    
-        // Create a new world with 1000x700 cells with a cell size of 1x1 pixels.
         // Allow infinite grid to ensure flexibility. However, ensure that objects can not go outside easily
-        this.mainIsland=mainIsland;
-        
-        grids = new Grid[WIDTH / 50 + 2][HEIGHT / 50 + 2]; // Add 2 grids on each axis for buffer space
+        this.previousIsland = previousIsland;
         
         
         
-        setPaintOrder(Cursor.class, Border.class, Entity.class, Bridge.class,Island.class, Grid.class);
         for (int i = 0; i < WIDTH / 50 + 2; i++){
             for (int j = 0; j < HEIGHT / 50 + 2; j++){
                 Grid cur = new Grid(new GreenfootImage("Water" + ((i + j) % 4 + 1) + ".png") , i * 50, j * 50);
@@ -43,12 +37,13 @@ public class IslandRight extends IslandSystem
         
         
         drawBorder();
+        
         // testing mouse cursor
         addObject(new Cursor(), 100, 100);
         island = new Island(1);
         addObject(island, 500, 350);
-        bunny = new Player(1,this);
-        addObject(bunny,  5, 471);
+        player = new Player(1, this);
+        addObject(player,  5, 471);
         
         Bridge miB = new Bridge(2);
         addObject(miB, 48, 471);
@@ -63,8 +58,8 @@ public class IslandRight extends IslandSystem
     
     public void act(){
         // Call the wave effect every 50 acts
-        if(bunny.getX()<-100){
-            returnMainIsland();
+        if(player.getX() < -100){
+            returnPreviousIsland();
         }
         if (actCounter % 50 == 0) waveEffect();
         
@@ -72,37 +67,12 @@ public class IslandRight extends IslandSystem
         actCounter ++;
         
     }
-    public void returnMainIsland(){
-        Greenfoot.setWorld(mainIsland);
-    }
     
-    public void waveEffect(){
-    
-        
-        for (int i = 0; i < WIDTH / 50 + 2; i++){
-            
-            for (int j = 0; j < HEIGHT / 50 + 2; j++){
-                if (grids[i][j].getType() != Grid.GridType.WATER) continue;
-                int sign = test == 0 ? 1 : - 1;
-                int add = (j % 2 == 0 ? 3 : -2) * sign;
-                grids[i][j].setLocation(grids[i][j].getX() + add, j * 50 - 25);
-            }
-        }
-        test ^= 1;
-        
+    public void returnPreviousIsland(){
+        Greenfoot.setWorld(previousIsland);
+        previousIsland.spawn(950, 470);
     }
-    
-    /**
-     * This method changes the border state of the grid 
-     */
-    public void displayGrid(int x, int y, boolean activate){
-        if (activate) grids[x][y].activate();
-        else grids[x][y].deactivate();
-    }
-    
-    public void setMovingState(boolean state){
-        moving = state;
-    }
+
     public void drawBorder(){
         InvisibleBorder I1 = new InvisibleBorder(800,10);
         addObject(I1, 476, 565);
@@ -139,15 +109,15 @@ public class IslandRight extends IslandSystem
         InvisibleBorder I15 = new InvisibleBorder(60,10);
         addObject(I15, 208, 295);
         InvisibleBorder I16 = new InvisibleBorder(10,300);
-        addObject(I16, 198, 297);
+        addObject(I16, 198, 277);
         InvisibleBorder I17 = new InvisibleBorder(300,10);
         addObject(I17, 304, 511);
         InvisibleBorder I18 = new InvisibleBorder(10,190);
         addObject(I18, 449, 610);
         InvisibleBorder I30 = new InvisibleBorder(300,10);
-        addObject(I30, 50, 442);
+        addObject(I30, 50, 422);
         InvisibleBorder I31 = new InvisibleBorder(300,10);
-        addObject(I31, 54, 501);
+        addObject(I31, 54, 511);
        
         
     }

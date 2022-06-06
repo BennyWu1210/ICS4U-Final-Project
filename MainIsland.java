@@ -18,9 +18,8 @@ public class MainIsland extends IslandSystem
 
     private int actCounter, test;
     private Island island;
-    private boolean moving;
     private IslandRight islandRight;
-    private Player bunny ;
+    
     public MainIsland()
     {    
         
@@ -29,7 +28,6 @@ public class MainIsland extends IslandSystem
         grids = new Grid[WIDTH / 50 + 2][HEIGHT / 50 + 2]; // Add 2 grids on each axis for buffer space
         
         
-        setPaintOrder(Cursor.class, Border.class, Entity.class, Bridge.class,Island.class,Grid.class);
         for (int i = 0; i < WIDTH / 50 + 2; i++){
             for (int j = 0; j < HEIGHT / 50 + 2; j++){
                 Grid cur = new Grid(new GreenfootImage("Water" + ((i + j) % 4 + 1) + ".png") , i * 50, j * 50);
@@ -46,8 +44,8 @@ public class MainIsland extends IslandSystem
         drawBorder();
         island = new Island(0);
         addObject(island, 525, 375);
-        bunny= new Player(1,this);
-        addObject(bunny, 300, 300);
+        player = new Player(1,this);
+        addObject(player, 300, 300);
         
         Bridge bri = new Bridge(1);
         addObject(bri, 967,471);
@@ -58,7 +56,7 @@ public class MainIsland extends IslandSystem
     
     public void act(){
         // Call the wave effect every 50 acts
-        if(bunny.getX()>1100){
+        if(player.getX()>1100){
             openIslandRight();
         }
         
@@ -112,13 +110,13 @@ public class MainIsland extends IslandSystem
         InvisibleBorder I3 = new InvisibleBorder(90,10);
         addObject(I3, 920, 561);
         InvisibleBorder I4 = new InvisibleBorder(10,250);
-        addObject(I4, 963, 621);
+        addObject(I4, 963, 641);
         InvisibleBorder I19 = new InvisibleBorder(10,250);
-        addObject(I19, 963, 323);
+        addObject(I19, 963, 303);
         InvisibleBorder I20 = new InvisibleBorder(70,10);
-        addObject(I20, 1000, 503);
+        addObject(I20, 1000, 520);
         InvisibleBorder I21 = new InvisibleBorder(70,10);
-        addObject(I21, 1000, 441);
+        addObject(I21, 1000, 421);
         InvisibleBorder I5 = new InvisibleBorder(150,10);
         addObject(I5, 882, 331);
         InvisibleBorder I6 = new InvisibleBorder(10,60);
@@ -138,7 +136,7 @@ public class MainIsland extends IslandSystem
         InvisibleBorder I13 = new InvisibleBorder(400,10);
         addObject(I13, 341, 218);
         InvisibleBorder I14 = new InvisibleBorder(10,250);
-        addObject(I14, 178, 321);
+        addObject(I14, 178, 310);
         InvisibleBorder I15 = new InvisibleBorder(60,10);
         addObject(I15, 143, 434);
         InvisibleBorder I16 = new InvisibleBorder(10,70);
@@ -169,6 +167,13 @@ public class MainIsland extends IslandSystem
         MapBorder b13 = new MapBorder("b13");
         addObject(b13, 65, 547);
         */
+    }
+    
+    /**
+     * Set the initial spawning location of the player
+     */
+    public void spawn(int x, int y){
+        player.setLocation(x, y);
     }
   
 }

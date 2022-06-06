@@ -3,6 +3,4 @@ comment0.target=InvisibleBorder
 comment0.text=\n\ Write\ a\ description\ of\ class\ InvisibleBorder\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=width\ height
 comment1.target=InvisibleBorder(int,\ int)
-comment2.params=
-comment2.target=void\ act()
-numComments=3
+numComments=2

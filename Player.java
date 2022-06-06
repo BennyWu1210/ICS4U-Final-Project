@@ -215,4 +215,6 @@ public class Player extends Character
     public void setStop(boolean value){
         stop=value;
     }
+    
+    
 }
