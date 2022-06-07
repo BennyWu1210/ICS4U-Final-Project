@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=IslandSystem
-comment0.text=\n\ Write\ a\ description\ of\ class\ IslandSystem\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ IslandSystem\ here.\n\ \n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
 comment1.target=IslandSystem()
 comment1.text=\n\ Constructor\ for\ objects\ of\ class\ IslandSystem.\n\ \n
@@ -15,7 +15,7 @@ comment4.target=void\ waveEffect()
 comment4.text=\n\ This\ method\ implements\ the\ wave\ effects\ arround\ the\ island\n
 comment5.params=x\ y\ activate
 comment5.target=void\ displayGrid(int,\ int,\ boolean)
-comment5.text=\n\ This\ method\ changes\ the\ border\ state\ of\ the\ grid\ \n
+comment5.text=\n\ This\ method\ changes\ the\ border\ state\ of\ the\ grid\n
 comment6.params=x\ y
 comment6.target=void\ spawn(int,\ int)
 comment6.text=\n\ Set\ the\ initial\ spawning\ location\ of\ the\ player\n

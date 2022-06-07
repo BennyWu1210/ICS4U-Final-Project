@@ -14,6 +14,7 @@ public class PianoGame extends World
     String [] blackKeyNames = {"2","3","","5","6","7","","9","0","","="};
     String [] blackFileNames = {"3Dol#", "3Re#","", "3Fa#", "3Sol#","3La#", "", "4Dol#", "4Re#","", "4Fa#"};
     private IslandRight islandRight;
+    
     /**
      * Constructor for objects of class Piano.
      * 

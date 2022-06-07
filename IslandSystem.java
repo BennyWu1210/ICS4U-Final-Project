@@ -14,6 +14,7 @@ public class IslandSystem extends World {
     protected Island island;
     protected Player player;
     protected boolean moving;
+    protected Character gifBunny;
 
     /**
      * Constructor for objects of class IslandSystem.
@@ -38,7 +39,8 @@ public class IslandSystem extends World {
                 addObject(grids[i][j], i * 50 - 25, j * 50 - 25);
             }
         }
-
+         gifBunny = new Character();
+        addObject(gifBunny, 60, 60);
         addObject(new Cursor(), 100, 100);
     }
 
