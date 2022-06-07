@@ -46,7 +46,7 @@ public class MainIsland extends IslandSystem
         island = new Island(0);
         addObject(island, 525, 375);
         player = new Player(1,this);
-        addObject(player, 300, 300);
+        addObject(player, 873, 467);
         
         Bridge bri = new Bridge(1);
         addObject(bri, 967,471);

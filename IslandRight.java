@@ -13,8 +13,14 @@ public class IslandRight extends IslandSystem
     
     private int actCounter, test;
     private IslandSystem previousIsland;
-    
-    
+    private Sign pianoSign;
+    private TextBoard pianoBoard;
+    private Label pianoText[]=new Label[3];
+    private Label spaceContinue[] = new Label[3];
+    private Label spacePlay;
+    private boolean isPressed;
+    private int pianoOrder=0;
+    private PianoGame pianoWorld;
     /**
      * Constructor for objects of class IslandRight.
      * 
@@ -23,7 +29,7 @@ public class IslandRight extends IslandSystem
     {    
         // Allow infinite grid to ensure flexibility. However, ensure that objects can not go outside easily
         this.previousIsland = previousIsland;
-        
+        pianoWorld = new PianoGame(this);
         
         
         for (int i = 0; i < WIDTH / 50 + 2; i++){
@@ -59,9 +65,18 @@ public class IslandRight extends IslandSystem
         BillBoard painoBillBoard = new BillBoard();
         addObject(painoBillBoard,428,225);
         
+        pianoSign = new Sign();
+        pianoBoard = new TextBoard(800,300);
+        pianoText[0] = new Label("Welcome to the paino game!",40);
+        pianoText[1]= new Label("In this game, fell free to try out different\n songs you like!", 40);
+        pianoText[2]= new Label("Press Space to play!",55);
+        
+        spaceContinue[0] = new Label("Press Space to continue...",25);
+        spaceContinue[1]=spaceContinue[0];
+        spaceContinue[2]=new Label("",0);
+        
     }
-    
-    
+  
     public void act(){
         // Call the wave effect every 50 acts
         if(player.getX() < -100){
@@ -71,8 +86,59 @@ public class IslandRight extends IslandSystem
         
         Border.show = !moving;     
         actCounter ++;
+        interact();
+    }
+    
+    public void interact(){
+        Player p = (Player)getObjects(Player.class).get(0);
+        if(p.touchBillBoard()){
+            addObject(pianoSign, 431, 187);
+            
+            if(Greenfoot.isKeyDown("space")&&!isPressed){
+                
+                if(pianoOrder>0 && pianoOrder<4){
+                    removeObject(pianoText[pianoOrder-1]);
+                    removeObject(spaceContinue[pianoOrder-1]);
+                }
+                if(pianoOrder==3){
+                    removeObject(pianoBoard);
+                    pianoOrder=0;
+                    Greenfoot.setWorld(pianoWorld);
+                }else{
+                    
+                    addObject(pianoBoard, 500,550);
+                    addObject(pianoText[pianoOrder], 502,489);
+                    addObject(spaceContinue[pianoOrder], 708,637);
+                    
+                    isPressed= true;
+                    pianoOrder++;
+                    
+                }
+                
+                
+            }
+            if(!Greenfoot.isKeyDown("space")&&isPressed){
+                
+                isPressed=false;
+                
+            }
+            
+        }else{
+            removeObject(pianoSign);
+        }
+    }
+    public void keyPressed(){
+        if(Greenfoot.isKeyDown("space")&&!isPressed){
+            
+            isPressed= true;
+        }
+        if(!Greenfoot.isKeyDown("space")&&isPressed){
+  
+            isPressed=false;
+        }
         
     }
+   
     
     public void returnPreviousIsland(){
         Greenfoot.setWorld(previousIsland);
