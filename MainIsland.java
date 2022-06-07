@@ -38,6 +38,7 @@ public class MainIsland extends IslandSystem
         }
         
         
+        
         // testing mouse cursor
         addObject(new Cursor(), 100, 100);
          
@@ -56,14 +57,14 @@ public class MainIsland extends IslandSystem
     
     public void act(){
         // Call the wave effect every 50 acts
-        if(player.getX()>1100){
+        if(player.getX()>1050){
             openIslandRight();
         }
         
        if (actCounter % 50 == 0) waveEffect();
         
        Border.show = !moving;     
-        actCounter ++;
+       actCounter ++;
         
     }
     public void openIslandRight(){
@@ -114,9 +115,9 @@ public class MainIsland extends IslandSystem
         InvisibleBorder I19 = new InvisibleBorder(10,250);
         addObject(I19, 963, 303);
         InvisibleBorder I20 = new InvisibleBorder(70,10);
-        addObject(I20, 1000, 520);
+        addObject(I20, 1000, 510);
         InvisibleBorder I21 = new InvisibleBorder(70,10);
-        addObject(I21, 1000, 421);
+        addObject(I21, 1000, 434);
         InvisibleBorder I5 = new InvisibleBorder(150,10);
         addObject(I5, 882, 331);
         InvisibleBorder I6 = new InvisibleBorder(10,60);

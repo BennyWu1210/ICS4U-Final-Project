@@ -53,6 +53,12 @@ public class IslandRight extends IslandSystem
         Bridge rB = new Bridge(3);
         addObject(rB,181,471);
         
+        Piano p = new Piano();
+        addObject(p, 501,203);
+        
+        BillBoard painoBillBoard = new BillBoard();
+        addObject(painoBillBoard,428,225);
+        
     }
     
     

@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=BillBoard
+comment0.text=\n\ Write\ a\ description\ of\ class\ BillBoard\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=BillBoard()
+comment1.text=\n\ Act\ -\ do\ whatever\ the\ BillBoard\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ onClick()
+comment4.params=
+comment4.target=void\ onHover()
+numComments=5
