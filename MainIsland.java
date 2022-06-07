@@ -2,8 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class MyWorld here.
- * 
- * @author (your name) 
+ *
+ * @author (your name)
  * @version (a version number or a date)
  */
 public class MainIsland extends IslandSystem
@@ -11,95 +11,65 @@ public class MainIsland extends IslandSystem
 
     /**
      * Constructor for objects of class MyWorld.
-     * 
+     *
      */
-    public final static int WIDTH = 1000, HEIGHT = 700;
-    private Grid[][] grids;
-
     private int actCounter, test;
     private Island island;
     private IslandRight islandRight;
-    
+
     public MainIsland()
-    {    
-        
-        // Create a new world with 1000x700 cells with a cell size of 1x1 pixels.
-        // Allow infinite grid to ensure flexibility. However, ensure that objects can not go outside easily
-        grids = new Grid[WIDTH / 50 + 2][HEIGHT / 50 + 2]; // Add 2 grids on each axis for buffer space
-        
-        
-        for (int i = 0; i < WIDTH / 50 + 2; i++){
-            for (int j = 0; j < HEIGHT / 50 + 2; j++){
-                Grid cur = new Grid(new GreenfootImage("Water" + ((i + j) % 4 + 1) + ".png") , i * 50, j * 50);
-                cur.setType(Grid.GridType.WATER);
-                grids[i][j] = cur;
-                addObject(grids[i][j], i * 50 - 25, j * 50 - 25);
-            }
-        }
-        
-        
-        
+    {
+
         // testing mouse cursor
-        addObject(new Cursor(), 100, 100);
-         
+
         drawBorder();
         island = new Island(0);
         addObject(island, 525, 375);
         player = new Player(1,this);
         addObject(player, 873, 467);
-        
+
         Bridge bri = new Bridge(1);
         addObject(bri, 967,471);
-        
-        
+
+        // for testing
+        addObject(new House(), 300, 250);
+
+
         // addObject(h1, 298,300);
     }
-    
+
     public void act(){
         // Call the wave effect every 50 acts
         if(player.getX()>1050){
             openIslandRight();
         }
-        
-       if (actCounter % 50 == 0) waveEffect();
-        
-       Border.show = !moving;     
-       actCounter ++;
-        
+
+        if (actCounter % 50 == 0) waveEffect();
+
+        Border.show = !moving;
+        actCounter ++;
+
     }
+
+    /**
+     * Enter the right island
+     */
     public void openIslandRight(){
         Greenfoot.setWorld(new IslandRight(this));
     }
-    
-    
-    
-    public void waveEffect(){
-    
-        for (int i = 0; i < WIDTH / 50 + 2; i++){
-            
-            for (int j = 0; j < HEIGHT / 50 + 2; j++){
-                if (grids[i][j].getType() != Grid.GridType.WATER) continue;
-                int sign = test == 0 ? 1 : - 1;
-                int add = (j % 2 == 0 ? 3 : -2) * sign;
-                grids[i][j].setLocation(grids[i][j].getX() + add, j * 50 - 25);
-            }
-        }
-        test ^= 1;
-        
-    }
-    
+
     /**
-     * This method changes the border state of the grid 
+     * This method changes the border state of the grid
      */
     public void displayGrid(int x, int y, boolean activate){
         if (activate) grids[x][y].activate();
         else grids[x][y].deactivate();
     }
-    
+
     public void setMovingState(boolean state){
         moving = state;
     }
-    
+
     /**
      * This method draws the border for the main island
      */
@@ -169,12 +139,6 @@ public class MainIsland extends IslandSystem
         addObject(b13, 65, 547);
         */
     }
-    
-    /**
-     * Set the initial spawning location of the player
-     */
-    public void spawn(int x, int y){
-        player.setLocation(x, y);
-    }
-  
+
+
 }

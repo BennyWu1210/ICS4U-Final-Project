@@ -8,13 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class House extends Interactor
 {
-    /**
-     * Act - do whatever the House wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
+    public House(){
+        setImage("House.png");
+        getImage().scale(92, 92);
+    }
+    
+    public void act(){
+        onHover();
     }
     
     public void onClick(){
@@ -22,6 +22,11 @@ public class House extends Interactor
     }
     
     public void onHover(){
-        
+        if (isTouching(Cursor.class)){
+            getImage().scale(115, 115);
+        }
+        else {
+            getImage().scale(92, 92);
+        }
     }
 }

@@ -7,6 +7,22 @@ class.Sign.image=Exc.png
 dependency1.from=IslandSystem
 dependency1.to=Island
 dependency1.type=UsesDependency
+<<<<<<< HEAD
+dependency10.from=MainIsland
+dependency10.to=Island
+dependency10.type=UsesDependency
+dependency11.from=MainIsland
+dependency11.to=IslandRight
+dependency11.type=UsesDependency
+dependency12.from=MainIsland
+dependency12.to=Player
+dependency12.type=UsesDependency
+dependency13.from=MainIsland
+dependency13.to=Bridge
+dependency13.type=UsesDependency
+dependency14.from=MainIsland
+dependency14.to=House
+=======
 dependency10.from=IslandSystem
 dependency10.to=Interactor
 dependency10.type=UsesDependency
@@ -21,6 +37,7 @@ dependency13.to=Label
 dependency13.type=UsesDependency
 dependency14.from=IslandRight
 dependency14.to=PianoGame
+>>>>>>> main
 dependency14.type=UsesDependency
 dependency15.from=IslandRight
 dependency15.to=Grid
@@ -52,6 +69,25 @@ dependency22.type=UsesDependency
 dependency23.from=IslandRight
 dependency23.to=Border
 dependency23.type=UsesDependency
+<<<<<<< HEAD
+dependency24.from=PianoGame
+dependency24.to=PianoKey
+dependency24.type=UsesDependency
+dependency25.from=PianoGame
+dependency25.to=Label
+dependency25.type=UsesDependency
+dependency26.from=HitBox
+dependency26.to=Player
+dependency26.type=UsesDependency
+dependency27.from=HitBox
+dependency27.to=InvisibleBorder
+dependency27.type=UsesDependency
+dependency28.from=HitBox
+dependency28.to=Interactor
+dependency28.type=UsesDependency
+dependency29.from=Grid
+dependency29.to=Border
+=======
 dependency24.from=MainIsland
 dependency24.to=Island
 dependency24.type=UsesDependency
@@ -69,10 +105,37 @@ dependency28.to=Player
 dependency28.type=UsesDependency
 dependency29.from=MainIsland
 dependency29.to=Bridge
+>>>>>>> main
 dependency29.type=UsesDependency
 dependency3.from=IslandSystem
 dependency3.to=Grid
 dependency3.type=UsesDependency
+<<<<<<< HEAD
+dependency30.from=Grid
+dependency30.to=Interactor
+dependency30.type=UsesDependency
+dependency31.from=Border
+dependency31.to=Interactor
+dependency31.type=UsesDependency
+dependency32.from=Cursor
+dependency32.to=IslandSystem
+dependency32.type=UsesDependency
+dependency33.from=Interactor
+dependency33.to=Button
+dependency33.type=UsesDependency
+dependency34.from=Interactor
+dependency34.to=Label
+dependency34.type=UsesDependency
+dependency35.from=House
+dependency35.to=Cursor
+dependency35.type=UsesDependency
+dependency36.from=Player
+dependency36.to=HitBox
+dependency36.type=UsesDependency
+dependency37.from=Player
+dependency37.to=IslandSystem
+dependency37.type=UsesDependency
+=======
 dependency30.from=MainIsland
 dependency30.to=InvisibleBorder
 dependency30.type=UsesDependency
@@ -103,6 +166,7 @@ dependency38.type=UsesDependency
 dependency39.from=Grid
 dependency39.to=Border
 dependency39.type=UsesDependency
+>>>>>>> main
 dependency4.from=IslandSystem
 dependency4.to=Cursor
 dependency4.type=UsesDependency
@@ -134,15 +198,36 @@ dependency48.from=Player
 dependency48.to=BillBoard
 dependency48.type=UsesDependency
 dependency5.from=IslandSystem
+<<<<<<< HEAD
+dependency5.to=Entity
+dependency5.type=UsesDependency
+dependency6.from=IslandSystem
+dependency6.to=Interactor
+=======
 dependency5.to=Label
 dependency5.type=UsesDependency
 dependency6.from=IslandSystem
 dependency6.to=Messages
+>>>>>>> main
 dependency6.type=UsesDependency
 dependency7.from=IslandSystem
 dependency7.to=Border
 dependency7.type=UsesDependency
 dependency8.from=IslandSystem
+<<<<<<< HEAD
+dependency8.to=Bridge
+dependency8.type=UsesDependency
+dependency9.from=IslandSystem
+dependency9.to=BillBoard
+dependency9.type=UsesDependency
+editor.fx.0.height=728
+editor.fx.0.width=800
+editor.fx.0.x=1330
+editor.fx.0.y=185
+height=814
+package.numDependencies=37
+package.numTargets=23
+=======
 dependency8.to=Entity
 dependency8.type=UsesDependency
 dependency9.from=IslandSystem
@@ -155,6 +240,7 @@ editor.fx.0.y=0
 height=812
 package.numDependencies=48
 package.numTargets=28
+>>>>>>> main
 project.charset=UTF-8
 publish.hasSource=false
 publish.locked=true
@@ -366,7 +452,12 @@ target9.width=120
 target9.x=0
 target9.y=0
 version=3.0.0
-width=1440
+width=1213
 world.lastInstantiated=MainIsland
+<<<<<<< HEAD
+xPosition=292
+yPosition=42
+=======
 xPosition=0
 yPosition=26
+>>>>>>> main

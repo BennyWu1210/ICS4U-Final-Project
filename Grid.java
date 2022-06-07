@@ -35,19 +35,6 @@ public class Grid extends Actor
         setImage(image);
     }
     
-    public void addedToWorld(World w){
-        
-        if (type == null) return;
-        
-        // for debugging
-        /*
-        GreenfootImage sq = new GreenfootImage("Square.png");
-        sq.scale(50, 50);
-        border = new Grid(getX(), getY());
-        w.addObject(border, getX(), getY());
-        */
-    }
-    
     /**
      * Sets the grid type (enum) of this grid object
      */
@@ -66,7 +53,7 @@ public class Grid extends Actor
      * This method displays the border of the grid
      */
     public void activate(){
-        if (!Border.show && border != null) return;
+        if ((!Border.show && border != null) || isTouching(Interactor.class)) return;
         border = new Border(x, y);
         getWorld().addObject(border, x + 25, y + 25);
     }

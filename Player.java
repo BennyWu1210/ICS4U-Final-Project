@@ -50,21 +50,20 @@ public class Player extends Character
             
             //set to appropriate size
             int scale = 50;
-            movements[0][i].scale(scale-5,scale);
-            movements[1][i].scale(scale-5,scale);
-            movements[2][i].scale(scale-15,scale);
-            movements[3][i].scale(scale-15,scale);
+            movements[0][i].scale(scale-8,scale);
+            movements[1][i].scale(scale-8,scale);
+            movements[2][i].scale(scale-18,scale);
+            movements[3][i].scale(scale-18,scale);
            
         }
-        movements[3][0].scale(40,50);
         setImage(movements[direction][0]);//set the begining pictures
     }
 
     public void addedToWorld(World w){
-        w.addObject(hitBoxLeft, getX(), getY());
-        w.addObject(hitBoxRight, getX(), getY());
-        w.addObject(hitBoxUp, getX(), getY());
-        w.addObject(hitBoxDown, getX(), getY());
+        w.addObject(hitBoxLeft, getX(), getY() + 8);
+        w.addObject(hitBoxRight, getX(), getY() + 8);
+        w.addObject(hitBoxUp, getX(), getY() + 8);
+        w.addObject(hitBoxDown, getX(), getY() + 8);
     }
     
     public boolean touchBillBoard(){
@@ -107,7 +106,7 @@ public class Player extends Character
         if (walkType != -1 && Greenfoot.isKeyDown(dir[walkType])) walkType = -1;
         if (Greenfoot.isKeyDown("down")){
             
-            hitBoxDown.setLocation(getX(), getY() + explore);
+            hitBoxDown.setLocation(getX(), getY() + explore + 10);
             
             if(hitBoxDown.getBack()){
                 //hitBox.setLocation(getX(), getY());
@@ -132,7 +131,7 @@ public class Player extends Character
         }
         
         if (Greenfoot.isKeyDown("up")){
-            hitBoxUp.setLocation(getX(), getY() - explore);
+            hitBoxUp.setLocation(getX(), getY() - explore + 10);
             if(hitBoxUp.getBack()){
                 //hitBox.setLocation(getX(), getY() );
             }else{
@@ -155,7 +154,7 @@ public class Player extends Character
         }
         
         if (Greenfoot.isKeyDown("left")){
-            hitBoxLeft.setLocation(getX()-explore, getY());
+            hitBoxLeft.setLocation(getX()-explore, getY() + 10);
             if(hitBoxLeft.getBack()){
                 //hitBox.setLocation(getX(), getY());
             }else{
@@ -181,7 +180,7 @@ public class Player extends Character
         }
         
         if (Greenfoot.isKeyDown("right")){
-            hitBoxRight.setLocation(getX()+explore, getY());
+            hitBoxRight.setLocation(getX()+explore, getY() + 10);
             if(hitBoxRight.getBack()){
                 //hitBox.setLocation(getX(), getY());
             }else{
