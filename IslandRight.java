@@ -60,7 +60,7 @@ public class IslandRight extends IslandSystem
         addObject(rB,181, 471);
         
         Piano p = new Piano();
-        addObject(p, 501, 203);
+        addObject(p, 475, 226);
         
         BillBoard painoBillBoard = new BillBoard();
         addObject(painoBillBoard,428,225);
