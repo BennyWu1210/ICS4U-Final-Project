@@ -51,10 +51,10 @@ public class IslandRight extends IslandSystem
         Bridge miB2 = new Bridge(2);
         addObject(miB2, 116, 471);
         Bridge rB = new Bridge(3);
-        addObject(rB,181,471);
+        addObject(rB,181, 471);
         
         Piano p = new Piano();
-        addObject(p, 501,203);
+        addObject(p, 501, 203);
         
         BillBoard painoBillBoard = new BillBoard();
         addObject(painoBillBoard,428,225);

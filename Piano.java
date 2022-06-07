@@ -15,6 +15,7 @@ public class Piano extends Interactor
     
     public Piano(){
         GreenfootImage piano = new GreenfootImage("Piano.png");
+        piano.scale(40, 30);
         setImage(piano);
     }
     public void act()

@@ -111,9 +111,9 @@ public class MainIsland extends IslandSystem
         InvisibleBorder I3 = new InvisibleBorder(90,10);
         addObject(I3, 920, 561);
         InvisibleBorder I4 = new InvisibleBorder(10,250);
-        addObject(I4, 963, 641);
+        addObject(I4, 963, 631);
         InvisibleBorder I19 = new InvisibleBorder(10,250);
-        addObject(I19, 963, 303);
+        addObject(I19, 963, 310);
         InvisibleBorder I20 = new InvisibleBorder(70,10);
         addObject(I20, 1000, 510);
         InvisibleBorder I21 = new InvisibleBorder(70,10);
