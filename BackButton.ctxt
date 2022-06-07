@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=BackButton
+comment0.text=\n\ Write\ a\ description\ of\ class\ BackButton\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=page
+comment1.target=BackButton(PianoGame)
+comment1.text=\n\ This\ set\ the\ default\ value\ for\ the\ back\ button.\n\ \n\ @param\ page\ \ The\ Modifier\ world\ to\ follow\ around\n
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ initBackButton()
+comment3.text=\n\ Initializing\ the\ back\ button\ image\n
+comment4.params=
+comment4.target=void\ onClick()
+comment4.text=\n\ Check\ if\ mouse\ clicks\ this\ button\n
+comment5.params=
+comment5.target=void\ onHover()
+comment5.text=\n\ Check\ if\ mouse\ hovers\ on\ this\ button\n
+numComments=6

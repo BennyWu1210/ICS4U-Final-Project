@@ -66,6 +66,12 @@ public class Player extends Character
         w.addObject(hitBoxDown, getX(), getY() + 8);
     }
     
+    public boolean touchBillBoard(){
+        return  isTouching(BillBoard.class);
+            
+            
+        
+    }
     /**
      * This method will update the sprite pictures when the user press the corresponding keys
      * @param animat, this is the GreenfoorImage array that is stored the direction images

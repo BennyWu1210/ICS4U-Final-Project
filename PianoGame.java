@@ -13,14 +13,16 @@ public class PianoGame extends World
     
     String [] blackKeyNames = {"2","3","","5","6","7","","9","0","","="};
     String [] blackFileNames = {"3Dol#", "3Re#","", "3Fa#", "3Sol#","3La#", "", "4Dol#", "4Re#","", "4Fa#"};
+    private IslandRight islandRight;
     /**
      * Constructor for objects of class Piano.
      * 
      */
-    public PianoGame()
+    public PianoGame(IslandRight islandRight)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 500, 1); 
+        this.islandRight=islandRight;
         for(int i=0;i<12;i++){
             PianoKey whiteKey = new PianoKey(whiteKeyNames[i],whiteFileNames[i]+".wav", "whiteUp.png", "whiteDown.png");
             addObject(whiteKey, 54+i*63 , 200); 
@@ -36,5 +38,10 @@ public class PianoGame extends World
                 addObject(label, 86+i*63 , 150); 
             }
         }
+        BackButton back = new BackButton(this);
+        addObject(back, 73,435);
+    }
+    public void returnIslandRight(){
+        Greenfoot.setWorld(islandRight);
     }
 }

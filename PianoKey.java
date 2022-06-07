@@ -12,7 +12,7 @@ public class PianoKey extends Actor
     private String sound;
     private String up;
     private String down;
-    boolean isPressed;
+    private boolean isPressed;
     /**
      * Act - do whatever the PianoKey wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

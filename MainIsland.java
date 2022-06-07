@@ -2,8 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * Write a description of class MyWorld here.
- * 
- * @author (your name) 
+ *
+ * @author (your name)
  * @version (a version number or a date)
  */
 public class MainIsland extends IslandSystem
@@ -11,65 +11,65 @@ public class MainIsland extends IslandSystem
 
     /**
      * Constructor for objects of class MyWorld.
-     * 
+     *
      */
     private int actCounter, test;
     private Island island;
     private IslandRight islandRight;
-    
+
     public MainIsland()
-    {    
-        
+    {
+
         // testing mouse cursor
-        
+
         drawBorder();
         island = new Island(0);
         addObject(island, 525, 375);
         player = new Player(1,this);
-        addObject(player, 350, 300);
-        
+        addObject(player, 873, 467);
+
         Bridge bri = new Bridge(1);
         addObject(bri, 967,471);
-        
+
         // for testing
         addObject(new House(), 300, 250);
-        
-        
+
+
         // addObject(h1, 298,300);
     }
-    
+
     public void act(){
         // Call the wave effect every 50 acts
         if(player.getX()>1050){
             openIslandRight();
         }
-        
+
         if (actCounter % 50 == 0) waveEffect();
-        
-        Border.show = !moving;     
+
+        Border.show = !moving;
         actCounter ++;
-        
+
     }
-    
+
     /**
      * Enter the right island
      */
     public void openIslandRight(){
         Greenfoot.setWorld(new IslandRight(this));
     }
-    
+
     /**
-     * This method changes the border state of the grid 
+     * This method changes the border state of the grid
      */
     public void displayGrid(int x, int y, boolean activate){
         if (activate) grids[x][y].activate();
         else grids[x][y].deactivate();
     }
-    
+
     public void setMovingState(boolean state){
         moving = state;
     }
-    
+
     /**
      * This method draws the border for the main island
      */
@@ -139,6 +139,6 @@ public class MainIsland extends IslandSystem
         addObject(b13, 65, 547);
         */
     }
-    
-  
+
+
 }
