@@ -24,8 +24,23 @@ public class IslandSystem extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(WIDTH, HEIGHT, 1, false); 
-        setPaintOrder(Cursor.class, Border.class, Entity.class, Bridge.class, BillBoard.class,Interactor.class,Island.class, Grid.class);
+        setPaintOrder(Cursor.class, Entity.class, Interactor.class, Border.class, Bridge.class, BillBoard.class, Island.class, Grid.class);
         grids = new Grid[WIDTH / 50 + 2][HEIGHT / 50 + 2]; // Add 2 grids on each axis for buffer space
+        
+        // Create a new world with 1000x700 cells with a cell size of 1x1 pixels.
+        // Allow infinite grid to ensure flexibility. However, ensure that objects can not go outside easily
+        
+        
+        for (int i = 0; i < WIDTH / 50 + 2; i++){
+            for (int j = 0; j < HEIGHT / 50 + 2; j++){
+                Grid cur = new Grid(new GreenfootImage("Water" + ((i + j) % 4 + 1) + ".png") , i * 50, j * 50);
+                cur.setType(Grid.GridType.WATER);
+                grids[i][j] = cur;
+                addObject(grids[i][j], i * 50 - 25, j * 50 - 25);
+            }
+        }
+        
+        addObject(new Cursor(), 100, 100);
     }
     
     public void setMovingState(boolean state){
@@ -42,7 +57,7 @@ public class IslandSystem extends World
         for (int i = 0; i < WIDTH / 50 + 2; i++){
             
             for (int j = 0; j < HEIGHT / 50 + 2; j++){
-                if (grids[i][j].getType() != Grid.GridType.WATER) continue;
+                if (grids[i][j].getType() != Grid.GridType.WATER || (i >= 7 && i <= 13 && j >= 6 && j <= 8)) continue;
                 int sign = test == 0 ? 1 : - 1;
                 int add = (j % 2 == 0 ? 3 : -2) * sign;
                 grids[i][j].setLocation(grids[i][j].getX() + add, j * 50 - 25);

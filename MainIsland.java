@@ -13,9 +13,6 @@ public class MainIsland extends IslandSystem
      * Constructor for objects of class MyWorld.
      * 
      */
-    public final static int WIDTH = 1000, HEIGHT = 700;
-    private Grid[][] grids;
-
     private int actCounter, test;
     private Island island;
     private IslandRight islandRight;
@@ -23,33 +20,19 @@ public class MainIsland extends IslandSystem
     public MainIsland()
     {    
         
-        // Create a new world with 1000x700 cells with a cell size of 1x1 pixels.
-        // Allow infinite grid to ensure flexibility. However, ensure that objects can not go outside easily
-        grids = new Grid[WIDTH / 50 + 2][HEIGHT / 50 + 2]; // Add 2 grids on each axis for buffer space
-        
-        
-        for (int i = 0; i < WIDTH / 50 + 2; i++){
-            for (int j = 0; j < HEIGHT / 50 + 2; j++){
-                Grid cur = new Grid(new GreenfootImage("Water" + ((i + j) % 4 + 1) + ".png") , i * 50, j * 50);
-                cur.setType(Grid.GridType.WATER);
-                grids[i][j] = cur;
-                addObject(grids[i][j], i * 50 - 25, j * 50 - 25);
-            }
-        }
-        
-        
-        
         // testing mouse cursor
-        addObject(new Cursor(), 100, 100);
-         
+        
         drawBorder();
         island = new Island(0);
         addObject(island, 525, 375);
         player = new Player(1,this);
-        addObject(player, 300, 300);
+        addObject(player, 350, 300);
         
         Bridge bri = new Bridge(1);
         addObject(bri, 967,471);
+        
+        // for testing
+        addObject(new House(), 300, 250);
         
         
         // addObject(h1, 298,300);
@@ -61,10 +44,10 @@ public class MainIsland extends IslandSystem
             openIslandRight();
         }
         
-       if (actCounter % 50 == 0) waveEffect();
+        if (actCounter % 50 == 0) waveEffect();
         
-       Border.show = !moving;     
-       actCounter ++;
+        Border.show = !moving;     
+        actCounter ++;
         
     }
     public void openIslandRight(){

@@ -66,7 +66,7 @@ public class Grid extends Actor
      * This method displays the border of the grid
      */
     public void activate(){
-        if (!Border.show && border != null) return;
+        if ((!Border.show && border != null) || isTouching(Interactor.class)) return;
         border = new Border(x, y);
         getWorld().addObject(border, x + 25, y + 25);
     }

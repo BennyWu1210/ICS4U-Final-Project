@@ -19,7 +19,7 @@ public class Border extends Grid
      */
     public void act()
     {
-        if (!show && getWorld().getObjects(Border.class).size() != 0){
+        if (!show && getWorld().getObjects(Border.class).size() != 0 || isTouching(Interactor.class)){
             getWorld().removeObjects(getWorld().getObjects(Border.class));
         }
     }

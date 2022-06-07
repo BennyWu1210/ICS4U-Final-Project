@@ -61,10 +61,10 @@ public class Player extends Character
     }
 
     public void addedToWorld(World w){
-        w.addObject(hitBoxLeft, getX(), getY());
-        w.addObject(hitBoxRight, getX(), getY());
-        w.addObject(hitBoxUp, getX(), getY());
-        w.addObject(hitBoxDown, getX(), getY());
+        w.addObject(hitBoxLeft, getX(), getY() + 5);
+        w.addObject(hitBoxRight, getX(), getY() + 5);
+        w.addObject(hitBoxUp, getX(), getY() + 5);
+        w.addObject(hitBoxDown, getX(), getY() + 5);
     }
     
     /**
@@ -101,7 +101,7 @@ public class Player extends Character
         if (walkType != -1 && Greenfoot.isKeyDown(dir[walkType])) walkType = -1;
         if (Greenfoot.isKeyDown("down")){
             
-            hitBoxDown.setLocation(getX(), getY() + explore);
+            hitBoxDown.setLocation(getX(), getY() + explore + 5);
             
             if(hitBoxDown.getBack()){
                 //hitBox.setLocation(getX(), getY());
@@ -126,7 +126,7 @@ public class Player extends Character
         }
         
         if (Greenfoot.isKeyDown("up")){
-            hitBoxUp.setLocation(getX(), getY() - explore);
+            hitBoxUp.setLocation(getX(), getY() - explore + 5);
             if(hitBoxUp.getBack()){
                 //hitBox.setLocation(getX(), getY() );
             }else{
@@ -149,7 +149,7 @@ public class Player extends Character
         }
         
         if (Greenfoot.isKeyDown("left")){
-            hitBoxLeft.setLocation(getX()-explore, getY());
+            hitBoxLeft.setLocation(getX()-explore, getY() + 5);
             if(hitBoxLeft.getBack()){
                 //hitBox.setLocation(getX(), getY());
             }else{
@@ -175,7 +175,7 @@ public class Player extends Character
         }
         
         if (Greenfoot.isKeyDown("right")){
-            hitBoxRight.setLocation(getX()+explore, getY());
+            hitBoxRight.setLocation(getX()+explore, getY() + 5);
             if(hitBoxRight.getBack()){
                 //hitBox.setLocation(getX(), getY());
             }else{

@@ -8,12 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class IslandRight extends IslandSystem
 {
-
-    public final static int WIDTH = 1000, HEIGHT = 700;
     
     private int actCounter, test;
     private IslandSystem previousIsland;
-    
     
     /**
      * Constructor for objects of class IslandRight.
@@ -23,23 +20,9 @@ public class IslandRight extends IslandSystem
     {    
         // Allow infinite grid to ensure flexibility. However, ensure that objects can not go outside easily
         this.previousIsland = previousIsland;
-        
-        
-        
-        for (int i = 0; i < WIDTH / 50 + 2; i++){
-            for (int j = 0; j < HEIGHT / 50 + 2; j++){
-                Grid cur = new Grid(new GreenfootImage("Water" + ((i + j) % 4 + 1) + ".png") , i * 50, j * 50);
-                cur.setType(Grid.GridType.WATER);
-                grids[i][j] = cur;
-                addObject(grids[i][j], i * 50 - 25, j * 50 - 25);
-            }
-        }
-        
-        
         drawBorder();
         
         // testing mouse cursor
-        addObject(new Cursor(), 100, 100);
         island = new Island(1);
         addObject(island, 500, 350);
         player = new Player(1, this);
