@@ -14,8 +14,8 @@ public class IslandSystem extends World
     protected int actCounter, test;
     protected Island island;
     protected Player player;
- 
     protected boolean moving;
+    
     /**
      * Constructor for objects of class IslandSystem.
      * 
@@ -43,14 +43,23 @@ public class IslandSystem extends World
         addObject(new Cursor(), 100, 100);
     }
     
+    /**
+     * Update the state of the player (whether or not it is moving)
+     */
     public void setMovingState(boolean state){
         moving = state;
     }
     
+    /**
+     * Get the state of the player (whether or not it is moving)
+     */
     public boolean getMovingState(){
         return moving;
     }
     
+    /**
+     * This method implements the wave effects arround the island
+     */   
     public void waveEffect(){
     
         

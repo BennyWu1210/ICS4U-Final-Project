@@ -35,19 +35,6 @@ public class Grid extends Actor
         setImage(image);
     }
     
-    public void addedToWorld(World w){
-        
-        if (type == null) return;
-        
-        // for debugging
-        /*
-        GreenfootImage sq = new GreenfootImage("Square.png");
-        sq.scale(50, 50);
-        border = new Grid(getX(), getY());
-        w.addObject(border, getX(), getY());
-        */
-    }
-    
     /**
      * Sets the grid type (enum) of this grid object
      */

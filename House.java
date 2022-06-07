@@ -10,7 +10,7 @@ public class House extends Interactor
 {
     public House(){
         setImage("House.png");
-        getImage().scale(100, 100);
+        getImage().scale(92, 92);
     }
     
     public void act(){
@@ -23,10 +23,10 @@ public class House extends Interactor
     
     public void onHover(){
         if (isTouching(Cursor.class)){
-            getImage().scale(120, 120);
+            getImage().scale(115, 115);
         }
         else {
-            getImage().scale(100, 100);
+            getImage().scale(92, 92);
         }
     }
 }

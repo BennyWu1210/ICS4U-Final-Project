@@ -50,25 +50,12 @@ public class MainIsland extends IslandSystem
         actCounter ++;
         
     }
+    
+    /**
+     * Enter the right island
+     */
     public void openIslandRight(){
         Greenfoot.setWorld(new IslandRight(this));
-    }
-    
-    
-    
-    public void waveEffect(){
-    
-        for (int i = 0; i < WIDTH / 50 + 2; i++){
-            
-            for (int j = 0; j < HEIGHT / 50 + 2; j++){
-                if (grids[i][j].getType() != Grid.GridType.WATER) continue;
-                int sign = test == 0 ? 1 : - 1;
-                int add = (j % 2 == 0 ? 3 : -2) * sign;
-                grids[i][j].setLocation(grids[i][j].getX() + add, j * 50 - 25);
-            }
-        }
-        test ^= 1;
-        
     }
     
     /**
@@ -153,11 +140,5 @@ public class MainIsland extends IslandSystem
         */
     }
     
-    /**
-     * Set the initial spawning location of the player
-     */
-    public void spawn(int x, int y){
-        player.setLocation(x, y);
-    }
   
 }
