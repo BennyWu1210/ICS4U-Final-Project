@@ -13,12 +13,14 @@ public class IslandRight extends IslandSystem {
 
     private Sign pianoSign;
     private TextBoard pianoBoard;
+    private BillBoard pianoBillBoard;
     private Label pianoText[] = new Label[3];
     private Label spaceContinue[] = new Label[3];
     private Label spacePlay;
     private boolean isPressed;
     private int pianoOrder = 0;
     private PianoGame pianoWorld;
+    private Piano piano;
 
     /**
      * Constructor for objects of class IslandRight.
@@ -52,14 +54,15 @@ public class IslandRight extends IslandSystem {
 
         Bridge miB2 = new Bridge(2);
         addObject(miB2, 116, 471);
+        
         Bridge rB = new Bridge(3);
         addObject(rB, 181, 471);
 
-        Piano p = new Piano();
-        addObject(p, 475, 226);
+        piano = new Piano();
+        addObject(piano, 475, 226);
 
-        BillBoard painoBillBoard = new BillBoard();
-        addObject(painoBillBoard, 428, 225);
+        pianoBillBoard = new BillBoard();
+        addObject(pianoBillBoard, 428, 225);
 
         pianoSign = new Sign();
         pianoBoard = new TextBoard(800, 300);
@@ -83,15 +86,15 @@ public class IslandRight extends IslandSystem {
 
         Border.show = !moving;
         actCounter++;
-        interact();
+        interactPiano();
     }
 
-    public void interact() {
-        Player p = (Player) getObjects(Player.class).get(0);
-        if (p.touchBillBoard()) {
+    public void interactPiano() {
+        
+        if (player.isTouching(pianoBillBoard)) {
             addObject(pianoSign, 431, 187);
 
-            if (Greenfoot.isKeyDown("space") && !isPressed) {
+            if ((Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("enter")) && !isPressed) {
 
                 if (pianoOrder > 0 && pianoOrder < 4) {
                     removeObject(pianoText[pianoOrder - 1]);
@@ -113,7 +116,7 @@ public class IslandRight extends IslandSystem {
                 }
 
             }
-            if (!Greenfoot.isKeyDown("space") && isPressed) {
+            if (!Greenfoot.isKeyDown("space") && !Greenfoot.isKeyDown("enter") && isPressed) {
 
                 isPressed = false;
 

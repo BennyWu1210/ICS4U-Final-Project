@@ -13,10 +13,6 @@ public class House extends Interactor
         getImage().scale(92, 92);
     }
     
-    public void act(){
-        onHover();
-    }
-    
     public void onClick(){
         
     }

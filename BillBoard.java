@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class BillBoard extends Messages
+public class BillBoard extends Interactor
 {
     /**
      * Act - do whatever the BillBoard wants to do. This method is called whenever
@@ -14,19 +14,21 @@ public class BillBoard extends Messages
      */
     private Sign sign;
     
-    public BillBoard(){
-        
-    }
-    public void act()
-    {
-        
-    }
+
+ 
+    
     public void onClick(){
         
     }
     
     
     public void onHover(){
-        
+        if (isTouching(Cursor.class)){
+            getImage().scale(60, 60);
+        }
+        else {
+            getImage().scale(50, 50);
+        }
     }
+    
 }

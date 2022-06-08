@@ -10,9 +10,15 @@ public abstract class Interactor extends Actor
 {
     protected Button enterInteractor;
     protected Label label;
-    
+    protected int actCounter;
     public Interactor(){
         
+    }
+    
+    public void act(){
+        onHover();
+        onClick();
+        actCounter ++;
     }
     
     /**
