@@ -17,7 +17,7 @@ public class Character extends Entity
     public Character(){
          for(int i=0;i<4;i++){
              bunnyFront[i] = new GreenfootImage("front" + i + ".png");
-             bunnyFront[i].scale(70,70);
+             bunnyFront[i].scale(65,70);
         }
         setImage(bunnyFront[0]);
     }

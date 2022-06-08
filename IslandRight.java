@@ -75,7 +75,7 @@ public class IslandRight extends IslandSystem {
 
     public void act() {
         // Call the wave effect every 50 acts
-        if (player.getX() < -100) {
+        if (player.getX() < -50) {
             returnPreviousIsland();
         }
         if (actCounter % 50 == 0)
