@@ -66,11 +66,8 @@ public class Player extends Character
         w.addObject(hitBoxDown, getX(), getY() + 8);
     }
     
-    public boolean touchBillBoard(){
-        return  isTouching(BillBoard.class);
-            
-            
-        
+    public boolean isTouching(Actor actor){
+        return intersects(actor);
     }
     /**
      * This method will update the sprite pictures when the user press the corresponding keys

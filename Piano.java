@@ -8,19 +8,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Piano extends Interactor
 {
-    /**
-     * Act - do whatever the Piano wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+
     
     public Piano(){
         GreenfootImage piano = new GreenfootImage("Piano.png");
-        piano.scale(40, 30);
+        piano.scale(45, 35);
         setImage(piano);
     }
-    public void act()
-    {
-        // Add your action code here.
+   
+    public void act(){
+        super.act();
+        if (actCounter % 100 == 0){
+            setLocation(getX(), getY() + 5);
+        } else if (actCounter % 100 == 50){
+            setLocation(getX(), getY() - 5);
+        }
     }
     
     public void onClick(){
@@ -28,6 +30,11 @@ public class Piano extends Interactor
     }
     
     public void onHover(){
-        
+        if (isTouching(Cursor.class)){
+            getImage().scale(54, 42);
+        }
+        else {
+            getImage().scale(45, 35);
+        }
     }
 }
