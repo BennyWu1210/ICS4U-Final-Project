@@ -14,21 +14,24 @@ public class BillBoard extends Interactor
      */
     private Sign sign;
     
-
+    public BillBoard(){
+        setImage("BillBoard.png");
+        getImage().scale(35, 35);
+    }
  
-    
     public void onClick(){
         
     }
     
-    
     public void onHover(){
         if (isTouching(Cursor.class)){
-            getImage().scale(60, 60);
+            getImage().scale(45, 45);
         }
         else {
-            getImage().scale(50, 50);
+            getImage().scale(35, 35);
         }
     }
+    
+ 
     
 }

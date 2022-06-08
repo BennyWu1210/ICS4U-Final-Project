@@ -59,14 +59,14 @@ public class IslandRight extends IslandSystem {
         addObject(rB, 181, 471);
 
         piano = new Piano();
-        addObject(piano, 475, 226);
+        addObject(piano, 495, 176);
 
         pianoBillBoard = new BillBoard();
-        addObject(pianoBillBoard, 428, 225);
+        addObject(pianoBillBoard, 448, 175);
 
         pianoSign = new Sign();
         pianoBoard = new TextBoard(800, 300);
-        pianoText[0] = new Label("Welcome to the paino game!", 40);
+        pianoText[0] = new Label("Welcome to the piano game!", 40);
         pianoText[1] = new Label("In this game, fell free to try out different\n songs you like!", 40);
         pianoText[2] = new Label("Press Space to play!", 55);
 
@@ -92,7 +92,7 @@ public class IslandRight extends IslandSystem {
     public void interactPiano() {
         
         if (player.isTouching(pianoBillBoard)) {
-            addObject(pianoSign, 431, 187);
+            addObject(pianoSign, 450, 140);
 
             if ((Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("enter")) && !isPressed) {
 
@@ -148,7 +148,7 @@ public class IslandRight extends IslandSystem {
         InvisibleBorder I1 = new InvisibleBorder(800, 10);
         addObject(I1, 476, 565);
         InvisibleBorder I2 = new InvisibleBorder(10, 70);
-        addObject(I2, 628, 534);
+        addObject(I2, 628, 545);
         InvisibleBorder I3 = new InvisibleBorder(90, 10);
         addObject(I3, 673, 513);
         InvisibleBorder I4 = new InvisibleBorder(10, 250);
@@ -156,7 +156,7 @@ public class IslandRight extends IslandSystem {
         InvisibleBorder I19 = new InvisibleBorder(10, 60);
         addObject(I19, 694, 485);
         InvisibleBorder I20 = new InvisibleBorder(200, 10);
-        addObject(I20, 772, 460);
+        addObject(I20, 790, 460);
         InvisibleBorder I5 = new InvisibleBorder(150, 10);
         addObject(I5, 809, 243);
         InvisibleBorder I6 = new InvisibleBorder(10, 60);
