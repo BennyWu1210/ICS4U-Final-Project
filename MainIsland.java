@@ -40,7 +40,7 @@ public class MainIsland extends IslandSystem
 
     public void act(){
         // Call the wave effect every 50 acts
-        if(player.getX()>1050){
+        if(player.getX()>1020){
             openIslandRight();
         }
 

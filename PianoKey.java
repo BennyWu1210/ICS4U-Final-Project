@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PianoKey extends Actor
+public class PianoKey extends GameTool
 {
     private String key;
     private String sound;
