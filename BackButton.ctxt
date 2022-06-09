@@ -2,7 +2,7 @@
 comment0.target=BackButton
 comment0.text=\n\ Write\ a\ description\ of\ class\ BackButton\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=page
-comment1.target=BackButton(PianoGame)
+comment1.target=BackButton(IslandRight)
 comment1.text=\n\ This\ set\ the\ default\ value\ for\ the\ back\ button.\n\ \n\ @param\ page\ \ The\ Modifier\ world\ to\ follow\ around\n
 comment2.params=
 comment2.target=void\ act()

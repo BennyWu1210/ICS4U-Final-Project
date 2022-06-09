@@ -8,14 +8,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BackButton extends Button
 {
-    private PianoGame page;
+    private IslandRight page;
     private GreenfootImage[] images = new GreenfootImage[2];
     /**
      * This set the default value for the back button.
      * 
      * @param page  The Modifier world to follow around
      */
-    public BackButton(PianoGame page)
+    public BackButton(IslandRight page)
     {
         initBackButton();//initialize the button
         this.page=page;//initialize the page
@@ -42,7 +42,8 @@ public class BackButton extends Button
         if(Greenfoot.mouseClicked(this))
         {
             //Switch to the Island right world page
-            page.returnIslandRight();
+            page.returnToIslandRight();
+            
         }
     }
 

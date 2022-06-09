@@ -16,11 +16,19 @@ public class IslandRight extends IslandSystem {
     private BillBoard pianoBillBoard;
     private Label pianoText[] = new Label[3];
     private Label spaceContinue[] = new Label[3];
-    private Label spacePlay;
     private boolean isPressed;
     private int pianoOrder = 0;
     private PianoGame pianoWorld;
     private Piano piano;
+    
+    private Puzzle puzzle;
+    private Sign puzzleSign;
+    private PuzzleGame puzzleWorld;
+    private TextBoard puzzleBoard;
+    private BillBoard puzzleBillBoard;
+    private Label puzzleText[] = new Label[3];
+    private Label puzzleContinue[] = new Label[3];
+    private int puzzleOrder = 0;
 
     /**
      * Constructor for objects of class IslandRight.
@@ -31,6 +39,7 @@ public class IslandRight extends IslandSystem {
         // not go outside easily
         this.previousIsland = previousIsland;
         pianoWorld = new PianoGame(this);
+        puzzleWorld = new PuzzleGame(this);
 
         for (int i = 0; i < WIDTH / 50 + 2; i++) {
             for (int j = 0; j < HEIGHT / 50 + 2; j++) {
@@ -69,6 +78,17 @@ public class IslandRight extends IslandSystem {
         pianoText[0] = new Label("Welcome to the piano game!", 40);
         pianoText[1] = new Label("In this game, fell free to try out different\n songs you like!", 40);
         pianoText[2] = new Label("Press Space to play!", 55);
+        
+        puzzle = new Puzzle();
+        addObject(puzzle, 275,277);
+        puzzleBillBoard = new BillBoard();
+        addObject(puzzleBillBoard, 319, 277);
+
+        puzzleSign = new Sign();
+        puzzleBoard = new TextBoard(800, 300);
+        puzzleText[0] = new Label("Welcome to the puzzle game!", 40);
+        puzzleText[1] = new Label("In this game, Try to assemble the pictures!", 40);
+        puzzleText[2] = new Label("Press Space to play!", 55);
 
         spaceContinue[0] = new Label("Press Space to continue...", 25);
         spaceContinue[1] = spaceContinue[0];
@@ -86,10 +106,10 @@ public class IslandRight extends IslandSystem {
 
         Border.show = !moving;
         actCounter++;
-        interactPiano();
+        interact();
     }
 
-    public void interactPiano() {
+    public void interact() {
         
         if (player.isTouching(pianoBillBoard)) {
             addObject(pianoSign, 450, 140);
@@ -117,13 +137,42 @@ public class IslandRight extends IslandSystem {
 
             }
             if (!Greenfoot.isKeyDown("space") && !Greenfoot.isKeyDown("enter") && isPressed) {
-
                 isPressed = false;
-
             }
-
         } else {
             removeObject(pianoSign);
+        }
+        
+        if (player.isTouching(puzzleBillBoard)) {
+            addObject(puzzleSign, 318, 244);
+
+            if ((Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("enter")) && !isPressed) {
+
+                if (puzzleOrder > 0 && puzzleOrder < 4) {
+                    removeObject(puzzleText[puzzleOrder - 1]);
+                    removeObject(spaceContinue[puzzleOrder - 1]);
+                }
+                if (puzzleOrder == 3) {
+                    removeObject(puzzleBoard);
+                    puzzleOrder = 0;
+                    Greenfoot.setWorld(puzzleWorld);
+                } else {
+
+                    addObject(puzzleBoard, 500, 550);
+                    addObject(puzzleText[puzzleOrder], 502, 489);
+                    addObject(spaceContinue[puzzleOrder], 708, 637);
+
+                    isPressed = true;
+                    puzzleOrder++;
+
+                }
+
+            }
+            if (!Greenfoot.isKeyDown("space") && !Greenfoot.isKeyDown("enter") && isPressed) {
+                isPressed = false;
+            }
+        } else {
+            removeObject(puzzleSign);
         }
     }
 
@@ -138,7 +187,9 @@ public class IslandRight extends IslandSystem {
         }
 
     }
-
+    public void returnToIslandRight(){
+        Greenfoot.setWorld(this);
+    }
     public void returnPreviousIsland() {
         Greenfoot.setWorld(previousIsland);
         previousIsland.spawn(950, 470);

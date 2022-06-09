@@ -23,8 +23,9 @@ public class PianoGame extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         
-        super(800, 500, 1); 
+        super(800,500,1);
         GreenfootImage background = new GreenfootImage("wood.jpg");
+        
         setBackground(background);
         this.islandRight=islandRight;
         for(int i=0;i<12;i++){
@@ -42,10 +43,8 @@ public class PianoGame extends World
                 addObject(label, 86+i*63 , 150); 
             }
         }
-        BackButton back = new BackButton(this);
+        BackButton back = new BackButton(islandRight);
         addObject(back, 73,435);
     }
-    public void returnIslandRight(){
-        Greenfoot.setWorld(islandRight);
-    }
+    
 }

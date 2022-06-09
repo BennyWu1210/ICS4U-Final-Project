@@ -12,7 +12,11 @@ public class Puzzle extends Interactor
      * Act - do whatever the Puzzle wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    private String file;
     public Puzzle(){
+        GreenfootImage puzzle = new GreenfootImage("puzzle.png");
+        puzzle.scale(45,45);
+        setImage(puzzle);
         
     }
     public void act()
