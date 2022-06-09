@@ -12,11 +12,11 @@ public class InvisibleBorder extends Actor
      * Act - do whatever the InvisibleBorder wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    
+    //set up the initial variable
     private int width;
     private int height;
-    
     private GreenfootImage rect;
-
   
     public InvisibleBorder(int width, int height){
         this.width = width;

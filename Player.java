@@ -56,7 +56,7 @@ public class Player extends Character
             movements[3][i].scale(scale-18,scale);
            
         }
-        setImage(movements[direction][0]);//set the begining pictures
+        setImage(movements[direction-1][0]);//set the begining pictures
     }
 
     public void addedToWorld(World w){

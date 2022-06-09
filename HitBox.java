@@ -27,7 +27,6 @@ public class HitBox extends Actor
     {
         int explore=15;
         
-        
         if(touchBorder()){
             back=true;
         }else{
@@ -35,7 +34,7 @@ public class HitBox extends Actor
         }
         
         
-        
+
         /**
         if (Greenfoot.isKeyDown("down") && Greenfoot.isKeyDown("left")){
             setLocation(getX()-explore, getY()+explore);

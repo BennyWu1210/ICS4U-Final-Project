@@ -1,24 +1,25 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class BackButton here.
+ * Write a description of class PlayButton here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class BackButton extends Button
+public class PlayButton extends Button
 {
-    private PianoGame page;
+    private TitlePage page;
     private GreenfootImage[] images = new GreenfootImage[2];
     /**
      * This set the default value for the back button.
      * 
      * @param page  The Modifier world to follow around
      */
-    public BackButton(PianoGame page)
+    public PlayButton(TitlePage page)
     {
         initBackButton();//initialize the button
-        this.page=page;//initialize the page
+        this.page=page;
+
     }
     public void act(){
         onClick();
@@ -29,8 +30,8 @@ public class BackButton extends Button
      */
     public void initBackButton()
     {
-        images[0] = new GreenfootImage("backButtonDark.png"); 
-        images[1] = new GreenfootImage("backButtonLight.png"); 
+        images[0] = new GreenfootImage("playDark.png"); 
+        images[1] = new GreenfootImage("playLight.png"); 
         setImage(images[0]);
     }
 
@@ -41,8 +42,8 @@ public class BackButton extends Button
     {
         if(Greenfoot.mouseClicked(this))
         {
-            //Switch to the Island right world page
-            page.returnIslandRight();
+            //Switch to the Title page
+            page.startGame();
         }
     }
 

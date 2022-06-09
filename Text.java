@@ -14,8 +14,8 @@ public class Text extends Messages
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public Text(String string){
+        //set up the text
         Label label = new Label(string,40);
-        
     }
     public void act()
     {

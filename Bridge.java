@@ -15,6 +15,7 @@ public class Bridge extends Actor
     private GreenfootImage bri;
     
     public Bridge(int choice){
+        //used to set up the bridge set up
         if(choice==1){
             bri = new GreenfootImage("EndBridge.png");
             bri.mirrorHorizontally();
