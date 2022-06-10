@@ -21,7 +21,12 @@ public class Puzzle extends Interactor
     }
     public void act()
     {
-        // Add your action code here.
+        super.act();
+        if (actCounter % 100 == 0){
+            setLocation(getX(), getY() + 5);
+        } else if (actCounter % 100 == 50){
+            setLocation(getX(), getY() - 5);
+        }
     }
     public void onClick(){
         
@@ -29,10 +34,10 @@ public class Puzzle extends Interactor
     
     public void onHover(){
         if (isTouching(Cursor.class)){
-            getImage().scale(115, 115);
+            getImage().scale(55, 55);
         }
         else {
-            getImage().scale(92, 92);
+            getImage().scale(45, 45);
         }
     }
 }
