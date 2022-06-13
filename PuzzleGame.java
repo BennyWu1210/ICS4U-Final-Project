@@ -83,7 +83,7 @@ public class PuzzleGame extends World
     public void autoFit(int idx){
        
         
-        if(puzzle[idx].getX()==boxCoord[idx][0]&&puzzle[idx].getY()==boxCoord[idx][1]){
+        if(Math.abs(puzzle[idx].getX() - boxCoord[idx][0]) < 10 && Math.abs(puzzle[idx].getY() - boxCoord[idx][1]) < 10){
             puzzle[idx].setLocation(boxCoord[idx][0],boxCoord[idx][1]);
             state[idx]=true;
             puzzle[idx].setMoveAble();

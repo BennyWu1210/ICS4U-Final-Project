@@ -31,11 +31,11 @@ public class MainIsland extends IslandSystem
         Bridge bri = new Bridge(1);
         addObject(bri, 967,471);
 
-        // for testing
+        // add a house object
         addObject(new House(), 300, 250);
 
-
-        // addObject(h1, 298,300);
+        // add a tree object (testing)
+        addObject(new Tree(), 400, 300);
     }
 
     public void act(){
