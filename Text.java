@@ -8,18 +8,24 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Text extends Messages
 {
-    
+    private SimpleTimer timer = new SimpleTimer();
+    private int time;
     /**
      * Act - do whatever the Text wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    public Text(String string){
-        //set up the text
-        Label label = new Label(string,40);
+    public Text(String text, int font){
+        setImage(new GreenfootImage(text, font, Color.BLACK, null));
+        time=0;
     }
     public void act()
     {
-        // Add your action code here.
+        time++;
+        if(time>200){
+            
+            getWorld().removeObject(this);
+            time=0;
+        }
     }
      public void onClick(){
         

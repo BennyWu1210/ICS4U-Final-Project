@@ -13,6 +13,8 @@ public class PuzzleGame extends World
     private PuzzlePiece []puzzle = new PuzzlePiece [12];
     private boolean allTrue = true;
     private IslandRight islandRight;
+    private boolean finished=false;
+    private Text congra;
     /**
      * Constructor for objects of class PuzzleGame.
      * 
@@ -22,28 +24,19 @@ public class PuzzleGame extends World
         super(1000,700,1);
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         this.islandRight=islandRight;
-        setPaintOrder(Label.class,PuzzlePiece.class, PuzzlePieceHolder.class);
+        setPaintOrder(Text.class,PuzzlePiece.class, PuzzlePieceHolder.class);
         PuzzleBorder puzzleBorder = new PuzzleBorder();
         addObject(puzzleBorder, 350,354);
         
         PuzzleHolder holder = new PuzzleHolder();
         addObject(holder, 875,350);
 
-        
-        int idxP = 0;
-        for(int i=0;i<12;i++){
-            PuzzlePiece p = new PuzzlePiece("tile00"+i+".png",idxP);
-            int x=getRandomNumber(800,975);
-            int y=getRandomNumber(25,675);
-            puzzle[idxP]=p;
-            idxP++;
-            addObject(p, x,y);
-        }
+        initialize();
         int idx=0;
         for(int i=0;i<3;i++){
             for(int j=0; j<4;j++){
                 PuzzlePieceHolder h = new PuzzlePieceHolder();
-                PuzzlePieceTrans p = new PuzzlePieceTrans("tile00"+idx+".png",100);
+                PuzzlePieceTrans p = new PuzzlePieceTrans("tiles00"+idx+".png",100);
                 p.setTrans();
                 p.setMoveAble();
                 int x=150*j+125;
@@ -55,8 +48,14 @@ public class PuzzleGame extends World
                 idx++;
             }
         }
+        
         BackButton back = new BackButton(islandRight);
         addObject(back, 66,50);
+        
+        ResetButton reset = new ResetButton(this);
+        addObject(reset, 616, 50);
+        congra = new Text("Congratulation!", 70);
+        
     }
     public int getRandomNumber(int start,int end)
     {
@@ -74,14 +73,16 @@ public class PuzzleGame extends World
             }
         }
         if(allTrue){
-            Label congra = new Label("Congratulation!", 70);
             addObject(congra, 500, 300);
-        }else{
+            allTrue=false;
+            finished=true;
+            return;
+            
+        }else if(!allTrue&&!finished){
             allTrue=true;
         }
     }
     public void autoFit(int idx){
-       
         
         if(Math.abs(puzzle[idx].getX() - boxCoord[idx][0]) < 10 && Math.abs(puzzle[idx].getY() - boxCoord[idx][1]) < 10){
             puzzle[idx].setLocation(boxCoord[idx][0],boxCoord[idx][1]);
@@ -89,5 +90,26 @@ public class PuzzleGame extends World
             puzzle[idx].setMoveAble();
         }
     }
-
+    
+    public void initialize(){
+        int idxP = 0;
+        for(int i=0;i<12;i++){
+            PuzzlePiece p = new PuzzlePiece("tiles00"+i+".png",idxP);
+            int x=getRandomNumber(800,975);
+            int y=getRandomNumber(25,675);
+            puzzle[idxP]=p;
+            idxP++;
+            addObject(p, x,y);
+        }
+        
+    }
+    
+    public void restartGame(){
+        removeObjects(getObjects(PuzzlePiece.class));
+        finished=false;
+        for(int i=0;i<12;i++){
+            state[i]=false;
+        }
+        initialize();
+    }
 }
