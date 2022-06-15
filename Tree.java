@@ -6,12 +6,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Tree extends Plant
+public class Tree extends Decoration
 {
     private int actCounter, actDuration;
     private boolean hasFruit;
     public Tree(){
         super(new GreenfootImage("Tree1_empty.png"), true);
+        getImage().scale(75, 100);
         actDuration = (int)(120 * Math.random()) + 300;
     }
     
@@ -32,6 +33,7 @@ public class Tree extends Plant
             actDuration = (int)(120 * Math.random()) + 300;
             hasFruit = false;
             setImage("Tree1_empty.png");
+            getImage().scale(75, 100);
         }
     }
 }

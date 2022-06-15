@@ -33,9 +33,11 @@ public class MainIsland extends IslandSystem
 
         // add a house object
         addObject(new House(), 300, 250);
+        
+        // add plants
+        addPlants();
 
-        // add a tree object (testing)
-        addObject(new Tree(), 400, 300);
+        
     }
 
     public void act(){
@@ -51,6 +53,42 @@ public class MainIsland extends IslandSystem
 
     }
 
+    public void addPlants(){
+        // add a tree object (testing)
+        addObject(new Tree(), 300, 530);
+        addObject(new Tree(), 400, 530);
+        
+        addObject(new BushTree(), 380, 250);
+        addObject(new BushTree(), 440, 250);
+        addObject(new BushTree(), 500, 250);
+        
+        addObject(new BushTree(), 700, 160);
+        addObject(new BushTree(), 730, 180);
+        
+        addObject(new Trunk(), 680, 200);
+        addObject(new Trunk(), 720, 250);
+        addObject(new Trunk(), 340, 570);
+        
+        addObject(new Rock(), 690, 225);
+        addObject(new Rock(), 620, 160);
+        
+        
+        addObject(new Mushroom(), 680, 280);
+        addObject(new Mushroom(), 180, 483);
+        
+        
+        addObject(new Sunflower(), 220, 260);
+        addObject(new Sunflower(), 220, 290);
+        addObject(new Sunflower(), 220, 320);
+        addObject(new Sunflower(), 220, 350);
+        addObject(new Sunflower(), 360, 570);
+        
+        
+        
+        
+
+    }
+    
     /**
      * Enter the right island
      */

@@ -23,7 +23,7 @@ public class IslandSystem extends World {
     public IslandSystem() {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(WIDTH, HEIGHT, 1, false);
-        setPaintOrder(Cursor.class, Entity.class, Interactor.class, Label.class, Messages.class, Plant.class, Border.class,
+        setPaintOrder(Cursor.class, Entity.class, Interactor.class, Label.class, Messages.class, Decoration.class, Border.class,
                 Bridge.class, Island.class, Grid.class);
         grids = new Grid[WIDTH / 50 + 2][HEIGHT / 50 + 2]; // Add 2 grids on each axis for buffer space
 
