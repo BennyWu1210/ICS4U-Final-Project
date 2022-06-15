@@ -17,33 +17,41 @@ public class PongGame  extends World
     Score2 s2 = new Score2();
     GreenfootImage read1 = new GreenfootImage(100,30);
     GreenfootImage read2 = new GreenfootImage(100,30);
-    int p = 0;
-    int c = 0;
+    private int p = 0;
+    private int c = 0;
     String pScore = String.valueOf(p);
     String cScore = String.valueOf(c);
-    private IslandRight islandRight;
-    
-    public PongGame(IslandRight islandRight)
+    private MainIsland mainIsland;
+    private boolean play=true;
+    private TextD pla;
+    private TextD com;
+    private ExitButton exit;
+    public PongGame(MainIsland mainIsland)
     {    
         super(550, 400, 1);
-        this.islandRight=islandRight;
+        this.mainIsland=mainIsland;
+        
         setBackground(new GreenfootImage("court.jpg"));
         addObject(player, 50, getHeight()/2);
         addObject(computer, getWidth()-50 , getHeight()/2);
         addObject(ball, getWidth()/2, getHeight()/2);
         read1.drawString(pScore,2,20);
         s1.setImage(read1);
-        addObject(s1,getWidth()/4,50);
+        addObject(s1,135,50);
         read2.drawString(cScore, 2, 20);
         s2.setImage(read2);
-        addObject(s2,(getWidth()/4)*3,50);
+        addObject(s2,500,50);
         Greenfoot.setSpeed(45);
         
+        pla = new TextD("You Win!", 70);
+        com = new TextD("You Lose!", 70);
+        exit = new ExitButton(mainIsland);
         
     }
     public void act(){
         
-        if(Greenfoot.isKeyDown("up")){
+        if(play){
+            if(Greenfoot.isKeyDown("up")){
             player.setLocation(player.getX(), player.getY() - 5);
         }
         if(Greenfoot.isKeyDown("down")){
@@ -101,5 +109,43 @@ public class PongGame  extends World
             
                 
         }
+        
+        }
+        if(c==5){
+            addObject(com, 275,180);
+            play=false;
+            addObject(exit, 275,300);
+            
+        }else if(p==5){
+            addObject(pla, 275, 180);
+            play=false;
+            addObject(exit, 275,300);
+            
+        }
+        
+    }
+    
+    public void reset(){
+        p=0;
+            c=0;
+            cScore = String.valueOf(c);
+                read2.clear();
+                read2.drawString(cScore,2,20);
+                s2.setImage(read2);
+                pScore = String.valueOf(p);
+                read1.clear();
+                read1.drawString(pScore,2,20);
+                s1.setImage(read1);
+    }
+    public void removeTextD(){
+        if(com!=null){
+            removeObject(com);
+        }
+        if(pla!=null){
+            removeObject(pla);
+        }
+    }
+    public void setPlay(){
+        play=true;
     }
 }

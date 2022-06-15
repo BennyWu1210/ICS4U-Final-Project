@@ -17,9 +17,11 @@ public class Bar extends GameTool
     }
     public void act()
     {
+        /**
         if(Greenfoot.mouseMoved(null)){
             MouseInfo mouse = Greenfoot.getMouseInfo();
             setLocation(getX(),mouse.getY());
         }
+        */
     }
 }

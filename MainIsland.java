@@ -17,6 +17,15 @@ public class MainIsland extends IslandSystem
     private Island island;
     private IslandRight islandRight;
 
+    private boolean isPressed;
+    private PongGame pong;
+    private Sign pongSign;
+    private PuzzleGame pongWorld;
+    private TextBoard pongBoard;
+    private BillBoard pongBillBoard;
+    private Label pongText[] = new Label[3];
+    private Label pongContinue[] = new Label[3];
+    private int pongOrder = 0;
     public MainIsland()
     {
 
@@ -36,8 +45,23 @@ public class MainIsland extends IslandSystem
         
         // add plants
         addPlants();
-
         
+        pong= new PongGame(this);
+        Pong ping = new Pong();
+        addObject(ping, 924, 370);
+        
+        pongBillBoard = new BillBoard();
+        addObject(pongBillBoard,883,370);
+        
+        pongSign = new Sign();
+        pongBoard = new TextBoard(800, 300);
+        pongText[0] = new Label("Welcome to the ping pong game!", 40);
+        pongText[1] = new Label("Get five points to beat the computer!", 40);
+        pongText[2] = new Label("Press Space to play!", 55);
+
+        pongContinue[0] = new Label("Press Space to continue...", 25);
+        pongContinue[1] = pongContinue[0];
+        pongContinue[2] = new Label("", 0);
     }
 
     public void act(){
@@ -50,9 +74,14 @@ public class MainIsland extends IslandSystem
 
         Border.show = !moving;
         actCounter ++;
-
+        interact();
     }
 
+    public void returnToMainIsland(){
+        Greenfoot.setWorld(this);
+        pong.removeTextD();
+        pong.reset();
+    }
     public void addPlants(){
         // add a tree object (testing)
         addObject(new Tree(), 300, 530);
@@ -82,13 +111,42 @@ public class MainIsland extends IslandSystem
         addObject(new Sunflower(), 220, 320);
         addObject(new Sunflower(), 220, 350);
         addObject(new Sunflower(), 360, 570);
-        
-        
-        
-        
-
     }
     
+    public void interact() {
+        if (player.isTouching(pongBillBoard)) {
+            addObject(pongSign, 883, 338);
+
+            if ((Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("enter")) && !isPressed) {
+
+                if (pongOrder > 0 && pongOrder < 4) {
+                    removeObject(pongText[pongOrder - 1]);
+                    removeObject(pongContinue[pongOrder - 1]);
+                }
+                if (pongOrder == 3) {
+                    removeObject(pongBoard);
+                    pongOrder = 0;
+                    pong.setPlay();
+                    Greenfoot.setWorld(pong);
+                } else {
+
+                    addObject(pongBoard, 500, 550);
+                    addObject(pongText[pongOrder], 502, 489);
+                    addObject(pongContinue[pongOrder], 708, 637);
+
+                    isPressed = true;
+                    pongOrder++;
+
+                }
+
+            }
+            if (!Greenfoot.isKeyDown("space") && !Greenfoot.isKeyDown("enter") && isPressed) {
+                isPressed = false;
+            }
+        } else {
+            removeObject(pongSign);
+        }
+    }
     /**
      * Enter the right island
      */
