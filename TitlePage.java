@@ -14,22 +14,29 @@ public class TitlePage extends World
      * 
      */
     private MainIsland mworld;
+    private PlayButton button;
+    private Cursor cursor;
+    
     public TitlePage()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(1000, 700, 1); 
         //set the background
         GreenfootImage background = new GreenfootImage("Background.png");
-        background.scale(1000,700);
+        background.scale(1000, 700);
         setBackground(background);
         
         //add object to the class
-        PlayButton play = new PlayButton(this);
-        addObject(play, 391,314);
+        button = new PlayButton(this);
+        addObject(button, 391, 314);
         Label title1 = new Label("Benny's", 50);
         Label title2 = new Label("Playground", 50);
-        addObject(title1, 300,180);
-        addObject(title2, 295,238);
+        addObject(title1, 300, 180);
+        addObject(title2, 295, 238);
+        cursor = new Cursor();
+        addObject(cursor, 0, 0);
+        
+        
     }
     
     /**
@@ -37,5 +44,11 @@ public class TitlePage extends World
      */
     public void startGame(){
         Greenfoot.setWorld(new MainIsland());
+    }
+    
+    public void act(){
+        button.onClick(cursor);
+        button.onHover(cursor);
+        
     }
 }

@@ -24,14 +24,22 @@ public class Cursor extends Actor
             int x = mouse.getX(), y = mouse.getY();
             int curX = (int)((double)x / IslandSystem.WIDTH * 20), curY = (int)((double)y / IslandSystem.HEIGHT * 14);
             if (curX != relativeX || curY != relativeY) {
+                if (getWorld().getClass() == IslandSystem.class){
+                    ((IslandSystem)getWorld()).displayGrid(curX, curY, true);
+                    ((IslandSystem)getWorld()).displayGrid(relativeX, relativeY, false);
+                    relativeX = curX; relativeY = curY;
+                }
                 
-                ((IslandSystem)getWorld()).displayGrid(curX, curY, true);
-                ((IslandSystem)getWorld()).displayGrid(relativeX, relativeY, false);
-                relativeX = curX; relativeY = curY;
             }
             setLocation(x, y);
         }
-        
-        
+    }
+    
+    public boolean isClicked(Actor actor){
+        return Greenfoot.mouseClicked(this) && intersects(actor);
+    }
+    
+    public boolean isHovered(Actor actor){
+        return Greenfoot.mouseMoved(this) && intersects(actor);
     }
 }

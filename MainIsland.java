@@ -100,6 +100,8 @@ public class MainIsland extends IslandSystem
         
         addObject(new Rock(), 690, 225);
         addObject(new Rock(), 620, 160);
+        addObject(new Rock(), 790, 570);
+        addObject(new Rock(), 840, 580);
         
         
         addObject(new Mushroom(), 680, 280);
@@ -111,6 +113,8 @@ public class MainIsland extends IslandSystem
         addObject(new Sunflower(), 220, 320);
         addObject(new Sunflower(), 220, 350);
         addObject(new Sunflower(), 360, 570);
+        
+        addObject(new FlowerPot(), 830, 540);
     }
     
     public void interact() {

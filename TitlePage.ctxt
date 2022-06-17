@@ -6,4 +6,6 @@ comment1.target=TitlePage()
 comment2.params=
 comment2.target=void\ startGame()
 comment2.text=\n\ Set\ the\ world\ to\ mainisland\ world\n
-numComments=3
+comment3.params=
+comment3.target=void\ act()
+numComments=4

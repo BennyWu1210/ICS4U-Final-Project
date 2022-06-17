@@ -18,13 +18,11 @@ public class PlayButton extends Button
     public PlayButton(TitlePage page)
     {
         initBackButton();//initialize the button
-        this.page=page;
+        this.page = page;
+        images[0].scale(150, 63);
+        images[1].scale(150, 63);
+    }
 
-    }
-    public void act(){
-        onClick();
-        onHover();
-    }
     /**
      * Initializing the back button image
      */
@@ -38,25 +36,25 @@ public class PlayButton extends Button
     /**
      * Check if mouse clicks this button
      */
-    public void onClick()
+    public void onClick(Cursor cursor)
     {
-        if(Greenfoot.mouseClicked(this))
-        {
+        if (cursor.isClicked(this)){
             //Switch to the Title page
             page.startGame();
         }
+        
     }
 
     /**
      * Check if mouse hovers on this button
      */
-    public void onHover()
+    public void onHover(Cursor cursor)
     {
-        if (Greenfoot.mouseMoved(this))
+        if (intersects(cursor))
         {
             setImage(images[1]); //Light
         }
-        else if(Greenfoot.mouseMoved(null))
+        else
         {
             setImage(images[0]); //Dark
         }
