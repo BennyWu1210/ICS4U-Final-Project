@@ -1,60 +1,62 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class PlayButton here.
+ * Write a description of class BackButton here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class PlayButton extends Button
+public class ExitButton extends Button
 {
-    private TitlePage page;
+    private MainIsland page;
     private GreenfootImage[] images = new GreenfootImage[2];
     /**
      * This set the default value for the back button.
      * 
      * @param page  The Modifier world to follow around
      */
-    public PlayButton(TitlePage page)
+    public ExitButton(MainIsland page)
     {
         initBackButton();//initialize the button
-        this.page = page;
-        images[0].scale(150, 63);
-        images[1].scale(150, 63);
+        this.page=page;//initialize the page
     }
-
+    public void act(){
+        onClick();
+        onHover();
+    }
     /**
      * Initializing the back button image
      */
     public void initBackButton()
     {
-        images[0] = new GreenfootImage("playDark.png"); 
-        images[1] = new GreenfootImage("playLight.png"); 
+        images[0] = new GreenfootImage("exitDark.jpg"); 
+        images[1] = new GreenfootImage("exitLight.png"); 
         setImage(images[0]);
     }
 
     /**
      * Check if mouse clicks this button
      */
-    public void onClick(Cursor cursor)
+    public void onClick()
     {
-        if (cursor.isClicked(this)){
-            //Switch to the Title page
-            page.startGame();
+        if(Greenfoot.mouseClicked(this))
+        {
+            //Switch to the Island right world page
+            page.returnToMainIsland();
+            getWorld().removeObject(this);
         }
-        
     }
 
     /**
      * Check if mouse hovers on this button
      */
-    public void onHover(Cursor cursor)
+    public void onHover()
     {
-        if (intersects(cursor))
+        if (Greenfoot.mouseMoved(this))
         {
             setImage(images[1]); //Light
         }
-        else
+        else if(Greenfoot.mouseMoved(null))
         {
             setImage(images[0]); //Dark
         }

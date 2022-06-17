@@ -121,7 +121,7 @@ public class HitBox extends Actor
      * @return boolean value about whether touch the side or not
      */
     public boolean touchBorder(){
-        if(isTouching(InvisibleBorder.class)||isTouching(Interactor.class)){
+        if(isTouching(InvisibleBorder.class)||isTouching(Interactor.class)||isTouching(Tree.class)){
             return true;
         }else{
             return false;
