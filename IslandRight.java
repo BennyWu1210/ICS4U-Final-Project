@@ -94,6 +94,7 @@ public class IslandRight extends IslandSystem {
         spaceContinue[1] = spaceContinue[0];
         spaceContinue[2] = new Label("", 0);
 
+        addPlants();
     }
 
     public void act() {
@@ -109,6 +110,23 @@ public class IslandRight extends IslandSystem {
         interact();
     }
 
+    public void addPlants(){
+        addObject(new Mushroom(), 750, 420);
+        
+        addObject(new Trunk(), 600, 250);
+        
+        addObject(new BushTree(), 730, 350);
+        addObject(new BushTree(), 750, 390);
+       
+        addObject(new Rock(), 688, 385);
+        addObject(new Rock(), 600, 535);
+        addObject(new Rock(), 700, 220);
+        
+        addObject(new Tree(), 575, 485);
+        addObject(new Tree(), 655, 430);
+        addObject(new Tree(), 320, 405);
+    }
+    
     public void interact() {
         
         if (player.isTouching(pianoBillBoard)) {
