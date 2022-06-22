@@ -81,7 +81,7 @@ public class IslandSystem extends World {
         test ^= 1;
 
     }
-
+    
     /**
      * This method changes the border state of the grid
      */

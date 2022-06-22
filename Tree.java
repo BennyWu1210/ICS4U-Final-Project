@@ -28,8 +28,8 @@ public class Tree extends Decoration
         actCounter ++;
     }
     
-    public void onClick(){
-        if (hasFruit && Greenfoot.mouseClicked(this)){
+    public void onClick(Cursor c){
+        if (hasFruit && c.isClicked(this)){
             actDuration = (int)(120 * Math.random()) + 300;
             hasFruit = false;
             setImage("Tree1_empty.png");

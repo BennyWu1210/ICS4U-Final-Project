@@ -9,7 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Coin extends GameTool
 {
     private GreenfootImage[] images = new GreenfootImage[6];
-    private int ticks, idx;
+    private int ticks, idx, coins;
+    private Label coinLabel;
     public Coin(){
         
         for (int i = 0; i < 6; i++){
@@ -17,6 +18,11 @@ public class Coin extends GameTool
         }
         
         setImage(images[idx]);
+        coinLabel = new Label(coins, 50);
+    }
+    
+    public void addedToWorld(World w){
+        w.addObject(coinLabel, getX() + 60, getY());
     }
     
     public void act()
@@ -27,5 +33,11 @@ public class Coin extends GameTool
             setImage(images[idx]);
         }
         
+    }
+    
+    public void gainCoin(int c){
+        coins += c;
+        coinLabel.setValue(coins);
+        new GreenfootSound("Coin_Sound.mp3").play();
     }
 }
