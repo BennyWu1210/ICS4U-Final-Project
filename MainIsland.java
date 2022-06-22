@@ -90,10 +90,11 @@ public class MainIsland extends IslandSystem
         pong.removeTextD();
         pong.reset();
     }
+    
     public void addDecorations(){
         // add a tree object (testing)
-        addObject(new Tree(), 300, 530);
-        addObject(new Tree(), 400, 530);
+        addObject(new Tree(cursor), 300, 530);
+        addObject(new Tree(cursor), 400, 530);
         
         addObject(new BushTree(), 380, 250);
         addObject(new BushTree(), 440, 250);

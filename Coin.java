@@ -38,6 +38,8 @@ public class Coin extends GameTool
     public void gainCoin(int c){
         coins += c;
         coinLabel.setValue(coins);
-        new GreenfootSound("Coin_Sound.mp3").play();
+        GreenfootSound sound = new GreenfootSound("Coin_Sound.mp3");
+        sound.setVolume(40);
+        sound.play();
     }
 }

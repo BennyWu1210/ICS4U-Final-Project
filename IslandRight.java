@@ -122,9 +122,9 @@ public class IslandRight extends IslandSystem {
         addObject(new Rock(), 600, 535);
         addObject(new Rock(), 700, 220);
         
-        addObject(new Tree(), 575, 485);
-        addObject(new Tree(), 655, 430);
-        addObject(new Tree(), 320, 405);
+        addObject(new Tree(cursor), 575, 485);
+        addObject(new Tree(cursor), 655, 430);
+        addObject(new Tree(cursor), 320, 405);
     }
     
     public void interact() {

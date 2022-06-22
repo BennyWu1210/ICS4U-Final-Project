@@ -17,6 +17,7 @@ public class IslandSystem extends World {
     protected boolean moving;
     protected Character gifBunny;
     protected Cursor cursor;
+    protected Coin coin;
     
 
     /**
@@ -43,13 +44,14 @@ public class IslandSystem extends World {
             }
         }
         gifBunny = new Character();
+        coin = new Coin();
         addObject(gifBunny, 60, 60);
-        addObject(new Coin(), 150, 60);
+        addObject(coin, 150, 60);
         cursor = new Cursor();
         addObject(cursor, 100, 100);
         
     }
-
+    
     /**
      * Update the state of the player (whether or not it is moving)
      */
@@ -99,4 +101,9 @@ public class IslandSystem extends World {
     public void spawn(int x, int y) {
         player.setLocation(x, y);
     }
+    
+    public Coin getCoin(){
+        return coin;
+    }
+    
 }

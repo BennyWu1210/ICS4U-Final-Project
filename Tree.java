@@ -10,8 +10,10 @@ public class Tree extends Decoration
 {
     private int actCounter, actDuration;
     private boolean hasFruit;
-    public Tree(){
+    private Cursor cursor;
+    public Tree(Cursor cursor){
         super(new GreenfootImage("Tree1_empty.png"), true);
+        this.cursor = cursor;
         getImage().scale(75, 100);
         actDuration = (int)(120 * Math.random()) + 300;
     }
@@ -19,6 +21,7 @@ public class Tree extends Decoration
     public void act(){
         super.act();
         
+        onClick();
         if (actCounter == actDuration){
             actCounter = 0;
             actDuration = Integer.MAX_VALUE;
@@ -26,14 +29,17 @@ public class Tree extends Decoration
             hasFruit = true;
         }
         actCounter ++;
+        
     }
     
-    public void onClick(Cursor c){
-        if (hasFruit && c.isClicked(this)){
+    public void onClick(){
+        if (hasFruit && cursor.isClicked(this)){
             actDuration = (int)(120 * Math.random()) + 300;
             hasFruit = false;
             setImage("Tree1_empty.png");
             getImage().scale(75, 100);
+            ((IslandSystem)getWorld()).getCoin().gainCoin((int)(Math.random() * 7) + 3);
+            
         }
     }
 }
