@@ -30,6 +30,7 @@ public abstract class Button extends Actor
         }
     }
     
+
     // Stores the initial image and the image when hovered 
     public abstract void onClick(Cursor c);
     public abstract void onHover(Cursor c);
