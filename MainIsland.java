@@ -43,8 +43,8 @@ public class MainIsland extends IslandSystem
         // add a house object
         addObject(new House(), 300, 250);
         
-        // add plants
-        addPlants();
+        // add plants & animals
+        addDecorations();
         
         pong= new PongGame(this);
         Pong ping = new Pong();
@@ -82,7 +82,7 @@ public class MainIsland extends IslandSystem
         pong.removeTextD();
         pong.reset();
     }
-    public void addPlants(){
+    public void addDecorations(){
         // add a tree object (testing)
         addObject(new Tree(), 300, 530);
         addObject(new Tree(), 400, 530);
@@ -115,10 +115,11 @@ public class MainIsland extends IslandSystem
         addObject(new Sunflower(), 360, 570);
         
         addObject(new FlowerPot(), 830, 540);
+        
     }
     
     public void interact() {
-        if (player.isTouching(pongBillBoard)) {
+        if (player.getDist(pongBillBoard) <= 70) {
             addObject(pongSign, 883, 338);
 
             if ((Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("enter")) && !isPressed) {

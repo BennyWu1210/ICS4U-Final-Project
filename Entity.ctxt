@@ -6,3 +6,6 @@ comment1.target=void\ act()
 comment2.params=
 comment2.target=void\ move()
 numComments=3
+comment1.params=actor
+comment1.target=double\ getDist(greenfoot.Actor)
+numComments=2

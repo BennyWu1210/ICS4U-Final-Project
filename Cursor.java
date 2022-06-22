@@ -24,7 +24,7 @@ public class Cursor extends Actor
             int x = mouse.getX(), y = mouse.getY();
             int curX = (int)((double)x / IslandSystem.WIDTH * 20), curY = (int)((double)y / IslandSystem.HEIGHT * 14);
             if (curX != relativeX || curY != relativeY) {
-                if (getWorld().getClass() == IslandSystem.class){
+                if (getWorld().getClass() == IslandRight.class || getWorld().getClass() == MainIsland.class){
                     ((IslandSystem)getWorld()).displayGrid(curX, curY, true);
                     ((IslandSystem)getWorld()).displayGrid(relativeX, relativeY, false);
                     relativeX = curX; relativeY = curY;
