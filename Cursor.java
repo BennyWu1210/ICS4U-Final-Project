@@ -42,4 +42,8 @@ public class Cursor extends Actor
     public boolean isHovered(Actor actor){
         return Greenfoot.mouseMoved(this) && intersects(actor);
     }
+    
+    public boolean isDragged(Actor actor){
+        return Greenfoot.mouseDragged(this) && intersects(actor);
+    }
 }

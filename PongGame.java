@@ -26,11 +26,12 @@ public class PongGame  extends World
     private TextD pla;
     private TextD com;
     private ExitButton exit;
+    private Cursor cursor;
     public PongGame(MainIsland mainIsland)
     {    
         super(550, 400, 1);
         this.mainIsland=mainIsland;
-        
+        setPaintOrder(Cursor.class,Button.class);
         setBackground(new GreenfootImage("court.jpg"));
         addObject(player, 50, getHeight() / 2);
         addObject(computer, getWidth()-50 , getHeight()/2);
@@ -45,7 +46,8 @@ public class PongGame  extends World
         pla = new TextD("You Win!", 70);
         com = new TextD("You Lose!", 70);
         exit = new ExitButton(mainIsland);
-        
+        cursor = new Cursor();
+        addObject(cursor, 10, 10);
     }
     public void act(){
         
@@ -114,12 +116,14 @@ public class PongGame  extends World
             addObject(com, 275,180);
             play=false;
             addObject(exit, 275,300);
-            
+            exit.onClick(cursor);
+        exit.onHover(cursor);
         }else if(p==5){
             addObject(pla, 275, 180);
             play=false;
             addObject(exit, 275,300);
-            
+            exit.onClick(cursor);
+        exit.onHover(cursor);
         }
         
     }

@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class BackButton extends Button
 {
     private IslandRight page;
-    private GreenfootImage[] images = new GreenfootImage[2];
     /**
      * This set the default value for the back button.
      * 
@@ -20,10 +19,7 @@ public class BackButton extends Button
         initBackButton();//initialize the button
         this.page=page;//initialize the page
     }
-    public void act(){
-        onClick();
-        onHover();
-    }
+    
     /**
      * Initializing the back button image
      */
@@ -37,11 +33,12 @@ public class BackButton extends Button
     /**
      * Check if mouse clicks this button
      */
-    public void onClick()
+    public void onClick(Cursor c)
     {
-        if(Greenfoot.mouseClicked(this))
+        if(c.isClicked(this))
         {
             //Switch to the Island right world page
+            clicksSound();
             page.returnToIslandRight();
             
         }
@@ -50,16 +47,18 @@ public class BackButton extends Button
     /**
      * Check if mouse hovers on this button
      */
-    public void onHover()
+    public void onHover(Cursor c)
     {
-        if (Greenfoot.mouseMoved(this))
+        if (intersects(c))
         {
             setImage(images[1]); //Light
         }
-        else if(Greenfoot.mouseMoved(null))
+        else 
         {
             setImage(images[0]); //Dark
         }
 
     }
+    
+
 }

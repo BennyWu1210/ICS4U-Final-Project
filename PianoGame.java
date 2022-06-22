@@ -14,7 +14,8 @@ public class PianoGame extends World
     String [] blackKeyNames = {"2","3","","5","6","7","","9","0","","="};
     String [] blackFileNames = {"3Dol#", "3Re#","", "3Fa#", "3Sol#","3La#", "", "4Dol#", "4Re#","", "4Fa#"};
     private IslandRight islandRight;
-    
+    private Cursor cursor;
+    private BackButton back;
     /**
      * Constructor for objects of class Piano.
      * 
@@ -25,7 +26,8 @@ public class PianoGame extends World
         
         super(800,500,1);
         GreenfootImage background = new GreenfootImage("wood.jpg");
-        
+        cursor = new Cursor();
+        addObject(cursor, 0,0);
         setBackground(background);
         this.islandRight=islandRight;
         for(int i=0;i<12;i++){
@@ -43,8 +45,14 @@ public class PianoGame extends World
                 addObject(label, 86+i*63 , 150); 
             }
         }
-        BackButton back = new BackButton(islandRight);
+         back = new BackButton(islandRight);
         addObject(back, 73,435);
+    }
+    
+    public void act(){
+        back.onClick(cursor);
+        back.onHover(cursor);
+
     }
     
 }

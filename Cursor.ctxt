@@ -9,4 +9,6 @@ comment3.params=actor
 comment3.target=boolean\ isClicked(greenfoot.Actor)
 comment4.params=actor
 comment4.target=boolean\ isHovered(greenfoot.Actor)
-numComments=5
+comment5.params=actor
+comment5.target=boolean\ isDragged(greenfoot.Actor)
+numComments=6
