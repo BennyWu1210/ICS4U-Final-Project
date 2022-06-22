@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Cow extends Pet
 {
+    private GreenfootSound[] clickSound;
+    private int clickSoundIndex;
     private int totalMoveAct, moveAct, dirX, dirY, moving, idx;
     public Cow(){
         images = new GreenfootImage[5][2];
@@ -64,7 +66,30 @@ public class Cow extends Pet
         
     }
     
+    public void clicksSound(){
+        //set up and initalize for the sound preparation
+        clickSoundIndex=0;
+        clickSound=new GreenfootSound [20];
+        for(int i=0;i<clickSound.length;i++){
+            clickSound[i]=new GreenfootSound("moo.wav");
+        }
+        
+        //output
+        clickSound[clickSoundIndex].setVolume(80);
+        clickSound[clickSoundIndex].play();
+        clickSoundIndex++;
+        if(clickSoundIndex>clickSound.length-1){
+            clickSoundIndex=0;
+        }
+    }
     
+     public void onClick(Cursor c)
+    {
+        if(c.isClicked(this))
+        {
+            clicksSound();
+        }
+    }
     /**
      * This method will update the sprite pictures when the user press the corresponding keys
      * @param animat, this is the GreenfoorImage array that is stored the direction images

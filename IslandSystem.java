@@ -16,7 +16,7 @@ public class IslandSystem extends World {
     protected Player player;
     protected boolean moving;
     protected Character gifBunny;
-    
+    protected Cursor cursor;
     
 
     /**
@@ -45,7 +45,8 @@ public class IslandSystem extends World {
         gifBunny = new Character();
         addObject(gifBunny, 60, 60);
         addObject(new Coin(), 150, 60);
-        addObject(new Cursor(), 100, 100);
+        cursor = new Cursor();
+        addObject(cursor, 100, 100);
         
     }
 

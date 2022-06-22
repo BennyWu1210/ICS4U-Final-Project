@@ -55,7 +55,7 @@ public class TitlePage extends World
     }
     
     public void started(){
-        bgm.setVolume(70);
+        bgm.setVolume(40);
         bgm.playLoop();
     }
     

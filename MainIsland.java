@@ -16,7 +16,6 @@ public class MainIsland extends IslandSystem
     private int actCounter, test;
     private Island island;
     private IslandRight islandRight;
-
     private boolean isPressed;
     private PongGame pong;
     private Sign pongSign;
@@ -26,6 +25,9 @@ public class MainIsland extends IslandSystem
     private Label pongText[] = new Label[3];
     private Label pongContinue[] = new Label[3];
     private int pongOrder = 0;
+    
+    private Cow cow1;
+    private Cow cow2;
     public MainIsland()
     {
 
@@ -40,6 +42,9 @@ public class MainIsland extends IslandSystem
         Bridge bri = new Bridge(1);
         addObject(bri, 967,471);
 
+        cow1= new Cow();
+        cow2= new Cow();
+        
         // add a house object
         addObject(new House(), 300, 250);
         
@@ -75,6 +80,9 @@ public class MainIsland extends IslandSystem
         Border.show = !moving;
         actCounter ++;
         interact();
+        
+        cow1.onClick(cursor);
+        cow2.onClick(cursor);
     }
 
     public void returnToMainIsland(){
@@ -115,8 +123,8 @@ public class MainIsland extends IslandSystem
         addObject(new Sunflower(), 360, 570);
         
         addObject(new FlowerPot(), 830, 540);
-        addObject(new Cow(), 600, 400);
-        addObject(new Cow(), 700, 300);
+        addObject(cow1, 600, 400);
+        addObject(cow2, 700, 300);
         
     }
     
