@@ -115,6 +115,8 @@ public class MainIsland extends IslandSystem
         addObject(new Sunflower(), 360, 570);
         
         addObject(new FlowerPot(), 830, 540);
+        addObject(new Cow(), 600, 400);
+        addObject(new Cow(), 700, 300);
         
     }
     

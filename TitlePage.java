@@ -17,6 +17,8 @@ public class TitlePage extends World
     private PlayButton button;
     private Cursor cursor;
     
+    private static GreenfootSound bgm = new GreenfootSound("Background_music.mp3");
+    
     public TitlePage()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -51,4 +53,15 @@ public class TitlePage extends World
         button.onHover(cursor);
         
     }
+    
+    public void started(){
+        bgm.setVolume(70);
+        bgm.playLoop();
+    }
+    
+    public void stopped(){
+        bgm.stop();
+    }
 }
+
+

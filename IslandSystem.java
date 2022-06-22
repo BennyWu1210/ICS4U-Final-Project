@@ -7,6 +7,7 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class IslandSystem extends World {
+    
     public final static int WIDTH = 1000, HEIGHT = 700;
 
     protected Grid[][] grids;
@@ -15,6 +16,8 @@ public class IslandSystem extends World {
     protected Player player;
     protected boolean moving;
     protected Character gifBunny;
+    
+    
 
     /**
      * Constructor for objects of class IslandSystem.
@@ -23,7 +26,7 @@ public class IslandSystem extends World {
     public IslandSystem() {
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(WIDTH, HEIGHT, 1, false);
-        setPaintOrder(Cursor.class, Entity.class, Interactor.class, Label.class, Messages.class, Decoration.class, Border.class,
+        setPaintOrder(Cursor.class, Coin.class, Entity.class, Interactor.class, Label.class, Messages.class, Decoration.class, Border.class,
                 Bridge.class, Island.class, Grid.class);
         grids = new Grid[WIDTH / 50 + 2][HEIGHT / 50 + 2]; // Add 2 grids on each axis for buffer space
 
@@ -41,7 +44,9 @@ public class IslandSystem extends World {
         }
         gifBunny = new Character();
         addObject(gifBunny, 60, 60);
+        addObject(new Coin(), 150, 60);
         addObject(new Cursor(), 100, 100);
+        
     }
 
     /**

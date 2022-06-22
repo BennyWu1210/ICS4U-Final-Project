@@ -19,7 +19,7 @@ public class Cow extends Pet
             images[i][0].scale(45, 30);
             images[i][1].scale(45, 30);
         }
-        totalMoveAct = moveAct = 45 + (int)(Math.random() * 90);
+        totalMoveAct = moveAct = 35 + (int)(Math.random() * 110);
         dirX = 1;
         dirY = 1;
         setImage(images[0][dirX]);
@@ -27,7 +27,7 @@ public class Cow extends Pet
     
     public void act(){
         if (moveAct <= 0){
-            totalMoveAct = 45 + (int)(Math.random() * 90);
+            totalMoveAct = 35 + (int)(Math.random() * 110);
             
             int calc = Greenfoot.getRandomNumber(3);
             dirX = Greenfoot.getRandomNumber(2) == 0 ? 1 : -1;

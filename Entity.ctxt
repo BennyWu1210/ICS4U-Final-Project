@@ -1,11 +1,8 @@
 #BlueJ class context
 comment0.target=Entity
-comment0.text=\n\ Write\ a\ description\ of\ class\ Entity\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ Entity\ here.\n\ \n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
 comment1.target=void\ act()
-comment2.params=
-comment2.target=void\ move()
+comment2.params=actor
+comment2.target=double\ getDist(greenfoot.Actor)
 numComments=3
-comment1.params=actor
-comment1.target=double\ getDist(greenfoot.Actor)
-numComments=2
