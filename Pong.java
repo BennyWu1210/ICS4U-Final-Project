@@ -17,7 +17,12 @@ public class Pong extends Interactor
     }
     public void act()
     {
-        // Add your action code here.
+        super.act();
+        if (actCounter % 100 == 0){
+            setLocation(getX(), getY() + 5);
+        } else if (actCounter % 100 == 50){
+            setLocation(getX(), getY() - 5);
+        }
     }
     public void onClick(){
         
@@ -25,10 +30,10 @@ public class Pong extends Interactor
     
     public void onHover(){
         if (isTouching(Cursor.class)){
-            getImage().scale(55, 55);
+            getImage().scale(40, 50);
         }
         else {
-            getImage().scale(45, 45);
+            getImage().scale(40, 50);
         }
     }
 }

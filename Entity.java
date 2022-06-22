@@ -8,16 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class Entity extends Actor
 {
-    /**
-     * Act - do whatever the Entity wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
-    }
     
-    public void move(){
-        
+    
+    public double getDist(Actor actor){
+        int xDif = this.getX() - actor.getX(), yDif = this.getY() - actor.getY();
+        return Math.sqrt(xDif * xDif + yDif * yDif);
     }
 }

@@ -128,8 +128,7 @@ public class IslandRight extends IslandSystem {
     }
     
     public void interact() {
-        
-        if (player.isTouching(pianoBillBoard)) {
+        if (player.getDist(pianoBillBoard) <= 70) {
             addObject(pianoSign, 450, 140);
 
             if ((Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("enter")) && !isPressed) {
@@ -161,7 +160,7 @@ public class IslandRight extends IslandSystem {
             removeObject(pianoSign);
         }
         
-        if (player.isTouching(puzzleBillBoard)) {
+        if (player.getDist(puzzleBillBoard) <= 70) {
             addObject(puzzleSign, 318, 244);
 
             if ((Greenfoot.isKeyDown("space") || Greenfoot.isKeyDown("enter")) && !isPressed) {
