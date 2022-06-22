@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Cow
+comment0.text=\n\ Write\ a\ description\ of\ class\ Cow\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=
+comment1.target=Cow()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=int\ animate()
+comment3.text=\n\ This\ method\ will\ update\ the\ sprite\ pictures\ when\ the\ user\ press\ the\ corresponding\ keys\n\ @param\ animat,\ this\ is\ the\ GreenfoorImage\ array\ that\ is\ stored\ the\ direction\ images\n\ @param\ idx,\ this\ is\ the\ index\ for\ this\ method\ to\ update\ the\ images\ with\n\ @return\ \ this\ will\ update\ the\ index\ of\n
+numComments=4

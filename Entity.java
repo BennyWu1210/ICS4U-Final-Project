@@ -8,10 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class Entity extends Actor
 {
-    /**
-     * Act - do whatever the Entity wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    protected int actCounter;
     public void act()
     {
         // Add your action code here.

@@ -2,6 +2,7 @@
 comment0.target=Pet
 comment0.text=\n\ Write\ a\ description\ of\ class\ Pet\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
-comment1.target=void\ act()
-comment1.text=\n\ Act\ -\ do\ whatever\ the\ Pet\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
-numComments=2
+comment1.target=Pet()
+comment2.params=
+comment2.target=void\ act()
+numComments=3
