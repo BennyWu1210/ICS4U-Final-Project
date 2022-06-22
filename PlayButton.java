@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class PlayButton extends Button
 {
     private TitlePage page;
-    private GreenfootImage[] images = new GreenfootImage[2];
     /**
      * This set the default value for the back button.
      * 
@@ -17,6 +16,7 @@ public class PlayButton extends Button
      */
     public PlayButton(TitlePage page)
     {
+        super();
         initBackButton();//initialize the button
         this.page = page;
         images[0].scale(150, 63);
@@ -40,6 +40,7 @@ public class PlayButton extends Button
     {
         if (cursor.isClicked(this)){
             //Switch to the Title page
+            clicksSound();
             page.startGame();
         }
         
@@ -60,4 +61,5 @@ public class PlayButton extends Button
         }
 
     }
+
 }

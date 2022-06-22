@@ -15,6 +15,10 @@ public class PuzzleGame extends World
     private IslandRight islandRight;
     private boolean finished=false;
     private Text congra;
+    private BackButton back ;
+    private ResetButton reset;
+    
+    private Cursor cursor;
     /**
      * Constructor for objects of class PuzzleGame.
      * 
@@ -24,13 +28,14 @@ public class PuzzleGame extends World
         super(1000,700,1);
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         this.islandRight=islandRight;
-        setPaintOrder(Text.class,PuzzlePiece.class, PuzzlePieceHolder.class);
+        setPaintOrder(Cursor.class,Text.class,PuzzlePiece.class, PuzzlePieceHolder.class);
         PuzzleBorder puzzleBorder = new PuzzleBorder();
         addObject(puzzleBorder, 350,354);
         
         PuzzleHolder holder = new PuzzleHolder();
         addObject(holder, 875,350);
-
+        cursor = new Cursor();
+        addObject(cursor, 0, 0);
         initialize();
         int idx=0;
         for(int i=0;i<3;i++){
@@ -49,10 +54,10 @@ public class PuzzleGame extends World
             }
         }
         
-        BackButton back = new BackButton(islandRight);
+        back = new BackButton(islandRight);
         addObject(back, 66,50);
         
-        ResetButton reset = new ResetButton(this);
+        reset = new ResetButton(this);
         addObject(reset, 616, 50);
         congra = new Text("Congratulation!", 70);
         
@@ -63,6 +68,15 @@ public class PuzzleGame extends World
        return normal+start;
     }
     public void act(){
+        reset.onClick(cursor);
+        reset.onHover(cursor);
+        back.onClick(cursor);
+        back.onHover(cursor);
+        for(int i=0;i<12;i++){
+            puzzle[i].followMouse(cursor);
+            
+        }
+        
         for(int i=0;i<12;i++){
             autoFit(i);
         }

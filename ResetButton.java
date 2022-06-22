@@ -20,10 +20,7 @@ public class ResetButton extends Button
         initBackButton();//initialize the button
         this.page=page;
     }
-    public void act(){
-        onClick();
-        onHover();
-    }
+    
     /**
      * Initializing the back button image
      */
@@ -37,10 +34,11 @@ public class ResetButton extends Button
     /**
      * Check if mouse clicks this button
      */
-    public void onClick()
+    public void onClick(Cursor c)
     {
-        if(Greenfoot.mouseClicked(this))
+        if(c.isClicked(this))
         {
+            clicksSound();
             page.restartGame();
         
         }
@@ -49,16 +47,18 @@ public class ResetButton extends Button
     /**
      * Check if mouse hovers on this button
      */
-    public void onHover()
+    public void onHover(Cursor c)
     {
-        if (Greenfoot.mouseMoved(this))
+        if (intersects(c))
         {
             setImage(images[1]); //Light
         }
-        else if(Greenfoot.mouseMoved(null))
+        else 
         {
             setImage(images[0]); //Dark
         }
 
     }
+    
+    
 }
