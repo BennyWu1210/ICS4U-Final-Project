@@ -41,9 +41,39 @@ public class ResetButton extends Button
             clicksSound();
             page.restartGame();
         
+        
         }
     }
 
+    /**
+     * Check if mouse clicks this button
+     */
+    public void onClick()
+    {
+        
+        if(Greenfoot.mouseClicked(this))
+        {
+            //Switch to the Island right world page
+            
+            clicksSound();
+            page.restartGame();
+            
+        }
+    }
+
+ 
+    
+    public void onHover(){
+        if (Greenfoot.mouseMoved(this))
+        {
+            setImage(images[1]); //Light
+        }
+        else if (Greenfoot.mouseMoved(null))
+        {
+            setImage(images[0]); //Dark
+        }
+    }
+    
     /**
      * Check if mouse hovers on this button
      */

@@ -35,20 +35,12 @@ public class IslandRight extends IslandSystem {
      * 
      */
     public IslandRight(IslandSystem previousIsland) {
+        super();
         // Allow infinite grid to ensure flexibility. However, ensure that objects can
         // not go outside easily
         this.previousIsland = previousIsland;
         pianoWorld = new PianoGame(this);
         puzzleWorld = new PuzzleGame(this);
-
-        for (int i = 0; i < WIDTH / 50 + 2; i++) {
-            for (int j = 0; j < HEIGHT / 50 + 2; j++) {
-                Grid cur = new Grid(new GreenfootImage("Water" + ((i + j) % 4 + 1) + ".png"), i * 50, j * 50);
-                cur.setType(Grid.GridType.WATER);
-                grids[i][j] = cur;
-                addObject(grids[i][j], i * 50 - 25, j * 50 - 25);
-            }
-        }
 
         drawBorder();
 
@@ -95,6 +87,8 @@ public class IslandRight extends IslandSystem {
         spaceContinue[2] = new Label("", 0);
 
         addPlants();
+        
+        
     }
 
     public void act() {
@@ -205,11 +199,13 @@ public class IslandRight extends IslandSystem {
 
     }
     public void returnToIslandRight(){
+        getCoin().gainCoin(19 + (int)(Math.random() * 18));
         Greenfoot.setWorld(this);
     }
     public void returnPreviousIsland() {
         Greenfoot.setWorld(previousIsland);
         previousIsland.spawn(950, 470);
+        previousIsland.addObject(coin, 150, 60);
     }
 
     public void drawBorder() {

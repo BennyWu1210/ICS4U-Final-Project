@@ -35,7 +35,6 @@ public class PuzzleGame extends World
         PuzzleHolder holder = new PuzzleHolder();
         addObject(holder, 875,350);
         cursor = new Cursor();
-        addObject(cursor, 0, 0);
         initialize();
         int idx=0;
         for(int i=0;i<3;i++){
@@ -67,15 +66,17 @@ public class PuzzleGame extends World
        int normal = Greenfoot.getRandomNumber(end-start+1);
        return normal+start;
     }
+    
     public void act(){
-        reset.onClick(cursor);
-        reset.onHover(cursor);
-        back.onClick(cursor);
-        back.onHover(cursor);
-        for(int i=0;i<12;i++){
-            puzzle[i].followMouse(cursor);
-            
-        }
+        
+        reset.onClick();
+        reset.onHover();
+        back.onClick();
+        back.onHover();
+        
+       
+        
+        
         
         for(int i=0;i<12;i++){
             autoFit(i);
@@ -84,6 +85,7 @@ public class PuzzleGame extends World
         for(int i=0;i<12;i++){
             if(!state[i]){
                 allTrue=false;
+                break;
             }
         }
         if(allTrue){
@@ -98,7 +100,7 @@ public class PuzzleGame extends World
     }
     public void autoFit(int idx){
         
-        if(Math.abs(puzzle[idx].getX() - boxCoord[idx][0]) < 10 && Math.abs(puzzle[idx].getY() - boxCoord[idx][1]) < 10){
+        if(Math.abs(puzzle[idx].getX() - boxCoord[idx][0]) < 16 && Math.abs(puzzle[idx].getY() - boxCoord[idx][1]) < 16){
             puzzle[idx].setLocation(boxCoord[idx][0],boxCoord[idx][1]);
             state[idx]=true;
             puzzle[idx].setMoveAble();

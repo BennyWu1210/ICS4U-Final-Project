@@ -45,7 +45,7 @@ public class TitlePage extends World
      * Set the world to mainisland world
      */
     public void startGame(){
-        Greenfoot.setWorld(new MainIsland());
+        Greenfoot.setWorld(new MainIsland(null));
     }
     
     public void act(){

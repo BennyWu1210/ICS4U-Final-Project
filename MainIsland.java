@@ -15,7 +15,7 @@ public class MainIsland extends IslandSystem
      */
     private int actCounter, test;
     private Island island;
-    private IslandRight islandRight;
+    private IslandSystem islandRight;
     private boolean isPressed;
     private PongGame pong;
     private Sign pongSign;
@@ -28,9 +28,10 @@ public class MainIsland extends IslandSystem
     
     private Cow cow1;
     private Cow cow2;
-    public MainIsland()
+    public MainIsland(IslandSystem prevIsland)
     {
 
+        super();
         // testing mouse cursor
 
         drawBorder();
@@ -67,6 +68,15 @@ public class MainIsland extends IslandSystem
         pongContinue[0] = new Label("Press Space to continue...", 25);
         pongContinue[1] = pongContinue[0];
         pongContinue[2] = new Label("", 0);
+        
+        if (islandRight != null){
+            islandRight = prevIsland;
+        } else{
+            islandRight = new IslandRight(this);
+        }
+        
+        addObject(coin, 150, 60);
+
     }
 
     public void act(){
@@ -86,6 +96,7 @@ public class MainIsland extends IslandSystem
     }
 
     public void returnToMainIsland(){
+        getCoin().gainCoin(19 + (int)(Math.random() * 18));
         Greenfoot.setWorld(this);
         pong.removeTextD();
         pong.reset();
@@ -167,7 +178,9 @@ public class MainIsland extends IslandSystem
      * Enter the right island
      */
     public void openIslandRight(){
-        Greenfoot.setWorld(new IslandRight(this));
+        Greenfoot.setWorld(islandRight);
+        islandRight.spawn(3, 470);
+        islandRight.addObject(coin, 150, 60);
     }
 
     /**

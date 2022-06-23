@@ -20,17 +20,17 @@ public class PuzzlePiece extends GameTool
         puzzle.scale(150,150);
         setImage(puzzle);
     }
-    /**
-     * Act - do whatever the PuzzlePiece wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
+    public void act(){
+        followMouse();
+    }
 
-    public void followMouse(Cursor c){
-        //MouseInfo mouse = Greenfoot.getMouseInfo();
-        if(c.isDragged(this)&&!moveable){
-            setLocation(c.getX(), c.getY());
-            
+    public boolean followMouse(){
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        if(Greenfoot.mouseDragged(this)&&!moveable){
+            setLocation(mouse.getX(), mouse.getY());
+            return true;
         }
+        return false;
     }
     
     public void setMoveAble(){

@@ -27,7 +27,6 @@ public class PianoGame extends World
         super(800,500,1);
         GreenfootImage background = new GreenfootImage("wood.jpg");
         cursor = new Cursor();
-        addObject(cursor, 0,0);
         setBackground(background);
         this.islandRight=islandRight;
         for(int i=0;i<12;i++){
@@ -50,8 +49,8 @@ public class PianoGame extends World
     }
     
     public void act(){
-        back.onClick(cursor);
-        back.onHover(cursor);
+        back.onClick();
+        back.onHover();
 
     }
     

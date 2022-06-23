@@ -17,7 +17,7 @@ public class IslandSystem extends World {
     protected boolean moving;
     protected Character gifBunny;
     protected Cursor cursor;
-    protected Coin coin;
+    protected static Coin coin = new Coin();
     
 
     /**
@@ -44,10 +44,10 @@ public class IslandSystem extends World {
             }
         }
         gifBunny = new Character();
-        coin = new Coin();
         addObject(gifBunny, 60, 60);
-        addObject(coin, 150, 60);
+        
         cursor = new Cursor();
+        
         addObject(cursor, 100, 100);
         
     }

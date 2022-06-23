@@ -38,6 +38,23 @@ public class BackButton extends Button
         if(c.isClicked(this))
         {
             //Switch to the Island right world page
+            
+            clicksSound();
+            page.returnToIslandRight();
+            
+        }
+    }
+    
+    /**
+     * Check if mouse clicks this button
+     */
+    public void onClick()
+    {
+        
+        if(Greenfoot.mouseClicked(this))
+        {
+            //Switch to the Island right world page
+            
             clicksSound();
             page.returnToIslandRight();
             
@@ -58,6 +75,17 @@ public class BackButton extends Button
             setImage(images[0]); //Dark
         }
 
+    }
+    
+    public void onHover(){
+        if (Greenfoot.mouseMoved(this))
+        {
+            setImage(images[1]); //Light
+        }
+        else if (Greenfoot.mouseMoved(null))
+        {
+            setImage(images[0]); //Dark
+        }
     }
     
 
